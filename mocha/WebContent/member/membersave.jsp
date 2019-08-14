@@ -12,7 +12,6 @@ $(function(){
 	$("#checkid").click(function(){
 		
 		var input_val = $("#memberid").val();
-		//alert(input_val);
 	
 	if(!input_val){
 		alert("아이디를 입력하세요");
@@ -27,8 +26,8 @@ $(function(){
 		var result = $(xml).find("result").text();
 		
 		$(".console").html(result);
-	});
-});		
+		});
+	});		
 });
 
 $(function(){

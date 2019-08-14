@@ -4,4 +4,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <idcheck>
 	<result>${message}</result>
+	<result1>${member.memberid}</result1>
 </idcheck>

@@ -8,12 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="input">회원가입</a>
-<a href="test">로그인</a>
+<a href="join">회원가입</a><hr>
+<a href="login">로그인</a><hr>
 <c:if test="${member !=null}">
 <form action="logout">
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="로그아웃">
-</form>
+</form><hr>
 </c:if>
+<a href="mypage">My Page</a>
 </body>
 </html>
