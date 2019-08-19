@@ -16,5 +16,13 @@
 </form><hr>
 </c:if>
 <a href="mypage">My Page</a>
+	
+	<ul>
+		<li><a href="ybbsInsert.jsp">글쓰기</a>
+		<li><a href="latter_req_list?reqPage=1">상품 후기 리스트</a></li>
+		<li><a href="review_list">리스트</a></li>
+		
+		<li><a href="latter_req_list?reqPage=1">이대현</a></li>
+	</ul>
 </body>
 </html>
