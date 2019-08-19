@@ -16,7 +16,7 @@ import member.dao.MemberDAO;
 import member.dao.MemberDAOImpl;
 import member.model.Member;
 @WebServlet(name="MemberController",urlPatterns= 
-{"/member_save","/mypage","/join","/memberlogin","/login","/update","/idcheck","/logout","/update_name","/update_email","/update_password","/member_delete","/delete","/find","/id_find","/password_find","/repassword"})
+{"/member_save","/mypage","/join","/memberlogin","/login","/update","/idcheck","/logout","/update_name","/update_email","/update_password","/member_delete","/delete","/find","/id_find","/password_find","/repassword","/emailcheck"})
 public class MemberController extends HttpServlet{
 
 	@Override
@@ -45,10 +45,21 @@ public class MemberController extends HttpServlet{
 			rd.forward(req, resp);
 		}
 		else if(action.equals("update")) {
+			MemberDAO dao = new MemberDAOImpl();
+			HttpSession sesstion = req.getSession();
+			Member member = (Member) sesstion.getAttribute("member");
+			Member members = dao.selectByNo(member.getMemberno());
+			req.setAttribute("members",members );
 			RequestDispatcher rd = req.getRequestDispatcher("/member/mypageupdate.jsp");
 			rd.forward(req, resp);
 		}
 		else if(action.equals("mypage")) {
+			MemberDAO dao = new MemberDAOImpl();
+			HttpSession sesstion = req.getSession();
+			Member member = (Member) sesstion.getAttribute("member");
+			Member members = dao.selectByNo(member.getMemberno());
+			req.setAttribute("members",members );
+			
 			RequestDispatcher rd = req.getRequestDispatcher("/member/mypageimpomation.jsp");
 			rd.forward(req, resp);
 		}
@@ -81,8 +92,8 @@ public class MemberController extends HttpServlet{
 			Member member = dao.selectById(memberid);
 			
 			if(member!=null && member.getMemberid() != null && password.equals(member.getPassword())) {
-				HttpSession session = req.getSession();
-				session.setAttribute("member", member);
+				HttpSession sesstion = req.getSession();
+				sesstion.setAttribute("member", member);
 				
 				RequestDispatcher disptcher = req.getRequestDispatcher("/index.jsp");
 				disptcher.forward(req, resp);
@@ -116,26 +127,22 @@ public class MemberController extends HttpServlet{
 		else if(action.equals("update_name")) {
 			MemberDAO dao = new MemberDAOImpl();
 			Member member = new Member();
+			
 			member.setMembername(req.getParameter("membername"));
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
+			dao.updateName(member);
 			
-			boolean a = dao.updateName(member);
-			System.out.println(a);
-			
-			RequestDispatcher disptcher = req.getRequestDispatcher("/member/mypageimpomation.jsp"); 
+			RequestDispatcher disptcher = req.getRequestDispatcher("mypage"); 
 			disptcher.forward(req, resp);
 		}else if(action.equals("update_email")) {
 			MemberDAO dao = new MemberDAOImpl();
-			
 			Member member = new Member();
-			
-			HttpSession session = req.getSession();
-			session.setAttribute("member", member);
 			
 			member.setEmail(req.getParameter("email"));
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
 			dao.updateEmail(member);
-			RequestDispatcher disptcher = req.getRequestDispatcher("/member/mypageimpomation.jsp"); 
+			
+			RequestDispatcher disptcher = req.getRequestDispatcher("update"); 
 			disptcher.forward(req, resp);
 		}else if(action.equals("update_password")) {
 			MemberDAO dao = new MemberDAOImpl();
@@ -215,6 +222,19 @@ public class MemberController extends HttpServlet{
 			dao.updatePassword(member);
 			RequestDispatcher disptcher = req.getRequestDispatcher("/member/repasswordfinish.jsp"); 
 			disptcher.forward(req, resp);
+		}
+		else if (action.equals("emailcheck")) {
+			MemberDAO dao = new MemberDAOImpl();
+			int count = dao.checkByEmail(req.getParameter("email"));
+			
+			if(count==0) {
+				req.setAttribute("message1", "사용 할수 있는 이메일입니다.");
+			}else {
+				req.setAttribute("message1", "사용 할수 없는 이메일입니다.");				
+			}
+
+			RequestDispatcher rd = req.getRequestDispatcher("/member/message.jsp");
+			rd.forward(req, resp);
 		}
 	}
 }

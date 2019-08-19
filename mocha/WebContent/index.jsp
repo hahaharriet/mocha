@@ -15,6 +15,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="로그아웃">
 </form><hr>
 </c:if>
-<a href="mypage">My Page</a>
+<a href="mypage">My Page</a><br>
+
 </body>
 </html>
