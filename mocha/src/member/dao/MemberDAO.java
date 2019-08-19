@@ -14,7 +14,7 @@ public interface MemberDAO {
 	Member selectByEmail(String email);
 	//중복확인
 	public int checkById(String id);
-	
+	public int checkByEmail(String email);
 	//회원가입
 	boolean insert(Member member);
 	

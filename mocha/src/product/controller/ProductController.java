@@ -198,7 +198,7 @@ public class ProductController extends HttpServlet{
 			
 			RequestDispatcher rd= req.getRequestDispatcher("/product/productdetail.jsp");
 			rd.forward(req, resp);		
-		}else if(action.equals("product_req_list")) {
+		}/*else if(action.equals("product_req_list")) {
 			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
 			PageManager pm= new PageManager(requestPage);
 			
@@ -213,7 +213,7 @@ public class ProductController extends HttpServlet{
 			rd.forward(req, resp);
 			
 			
-		}
+		}*/
 		
 	}
 	

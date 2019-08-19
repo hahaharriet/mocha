@@ -5,14 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import product.dao.BaseDAO;
-
-
-
-
-
-
-
+import event.dao.BaseDAO;
 
 public class PageDAOImpl extends BaseDAO implements PageDAO {
 

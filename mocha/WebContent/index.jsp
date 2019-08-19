@@ -15,9 +15,19 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="로그아웃">
 </form><hr>
 </c:if>
-<a href="mypage">My Page</a></br>
+<<<<<<< HEAD
+<a href="mypage">My Page</a><br>
 
-<a href="product_list_m">product list</a>
- <a href="product_list_manager_m">관리자 상품관리</a><br/>
+=======
+<a href="mypage">My Page</a>
+	
+	<ul>
+		<li><a href="ybbsInsert.jsp">글쓰기</a>
+		<li><a href="latter_req_list?reqPage=1">상품 후기 리스트</a></li>
+		<li><a href="review_list">리스트</a></li>
+		
+		<li><a href="latter_req_list?reqPage=1">이대현</a></li>
+	</ul>
+>>>>>>> branch 'master' of https://github.com/hahaharriet/mocha
 </body>
 </html>

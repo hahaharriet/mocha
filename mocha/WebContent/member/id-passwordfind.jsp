@@ -9,6 +9,27 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script type="text/javascript">
 $(function(){
+	$("#password_find").validate({
+		debug : false,
+		rules:{
+			memberid2 : "required",
+			membername2 :"required",
+			email2 : {
+				required :true,
+				email : true
+			}
+		},
+		messages : {
+			memberid2 : {required :"아이디를 입력해주세요"},
+			membername2 : {required : "이름을 입력해주세요"},
+			email2 : {
+				required :"이메일를 입력해 주세요",
+				email : "이메일 형식이 맞지 않습니다."
+			}
+		}
+	});
+});
+$(function(){
 	$("#id_find").validate({
 		debug : false,
 		rules:{
@@ -48,12 +69,13 @@ ${member.memberid}
 </form>
 <hr/>
 <h4>비밀번호찾기</h4>
-<form action="password_find" method="post">
+<form action="password_find" method="post" id="password_find">
 
-<input type="text" placeholder="아이디를 입력해주세요" name="memberid2"  ><br/>
-<input type="text" placeholder="이름을 입력하세요" name="membername2" ><br/>
-<input type="email" placeholder="이메일을 입력하세요" name="email2" ><br/>
+<input type="text" placeholder="아이디를 입력해주세요" name="memberid2"  id="memberid2"><br/>
+<input type="text" placeholder="이름을 입력하세요" name="membername2" id="membername2"><br/>
+<input type="email" placeholder="이메일을 입력하세요" name="email2" id="email2"><br/>
 <input type="submit" value="확인" id="passwordclick">
+{member.password}
 </form>
 </body>
 </html>

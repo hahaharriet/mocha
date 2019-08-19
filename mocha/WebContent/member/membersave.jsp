@@ -21,15 +21,26 @@ $(function(){
 	var url = "idcheck";
 	
 	$.get(url, {"memberid":input_val},function(xml){
-		
-		
 		var result = $(xml).find("result").text();
-		
 		$(".console").html(result);
 		});
 	});		
 });
-
+$(function(){
+	
+	$("#emailcheck").click(function(){
+		var input_val = $("#email").val();
+		if(!input_val){
+			alert("이메일를 입력하세요");
+			return false;
+		}
+		var url = "emailcheck";
+	$.get(url,{"email":input_val},function(xml){
+		var result = $(xml).find("result1").text();
+		$(".console1").html(result);
+	});
+	});
+});
 $(function(){
 	$("#signupForm").validate({
 		debug : false,
@@ -94,7 +105,8 @@ $(function(){
 	<input type="password" placeholder="비밀번호" name="password" id="password"><br/>
 	<input type="password" placeholder="비밀번호확인" name="repassword" id="repassword"><br/>
 	<input type="text" placeholder="이름" name="membername" id="membername"><br/>
-	<input type="email" placeholder="이메일" name="email" id="email"><br/>
+	<input type="email" placeholder="이메일" name="email" id="email">
+	<input type="button" value="중복확인" name="emailcheck" id="emailcheck">&nbsp;&nbsp;<div class="console1"></div>
 	약관의 동의 합니까?<input type="checkbox" id="agree" name="agree"><br/>
 <input type="submit" value="회원가입"/><br/>
 </form>
