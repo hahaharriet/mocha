@@ -7,12 +7,6 @@ import java.sql.SQLException;
 
 import event.dao.BaseDAO;
 
-
-
-
-
-
-
 public class PageDAOImpl extends BaseDAO implements PageDAO {
 
 	@Override
