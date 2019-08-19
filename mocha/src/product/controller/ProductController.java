@@ -14,13 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+
+import page.PageManager;
+import page.PageSQL;
 import product.dao.ProductDAO;
 import product.dao.ProductDAOImpel;
 import product.model.Product;
 
 
 @WebServlet(name="ProductController", urlPatterns = {"/product_list_m","/product_list_price_desc_m","/product_list_price_asc_m","/product_search_m",
-		"/product_detail_m","/product_list_manager_m","/product_update_m","/product_save_m","/product_input_m","/product_delete_m","/product_detail_cust_m"})
+		"/product_detail_m","/product_list_manager_m","/product_update_m","/product_save_m","/product_input_m","/product_delete_m","/product_detail_cust_m","/product_req_list"})
 @MultipartConfig
 public class ProductController extends HttpServlet{
 
@@ -195,7 +198,23 @@ public class ProductController extends HttpServlet{
 			
 			RequestDispatcher rd= req.getRequestDispatcher("/product/productdetail.jsp");
 			rd.forward(req, resp);		
+		}else if(action.equals("product_req_list")) {
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
+			ProductDAO dao = new ProductDAOImpel();
+			List<Product> products = dao.selectAll(pm.getPageRowResult().getRowStartNumber(), pm.getPageRowResult().getRowEndNumber());
+			req.setAttribute("products", products);
+			
+			
+			req.setAttribute("pageGroupResult", pm.getpageGroupResult(PageSQL.PRODUCT_SELECT_ALL_COUNT));
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/product/productList.jsp");
+			rd.forward(req, resp);
+			
+			
 		}
+		
 	}
 	
 

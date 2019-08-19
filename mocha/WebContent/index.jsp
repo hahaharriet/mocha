@@ -15,6 +15,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="로그아웃">
 </form><hr>
 </c:if>
-<a href="mypage">My Page</a>
+<a href="mypage">My Page</a></br>
+
+<a href="product_list_m">product list</a>
+ <a href="product_list_manager_m">관리자 상품관리</a><br/>
 </body>
 </html>

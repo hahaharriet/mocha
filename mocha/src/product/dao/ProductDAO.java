@@ -2,6 +2,7 @@ package product.dao;
 
 import java.util.List;
 
+
 import product.model.Product;
 
 public interface ProductDAO {
@@ -15,5 +16,7 @@ public interface ProductDAO {
 		boolean productInsert(Product product);
 		boolean productUpdate(Product product);
 		boolean productDelete(int id);
+		List<Product> selectAll(int rowStartNumber, int rowEndNumber);
+
 }
 

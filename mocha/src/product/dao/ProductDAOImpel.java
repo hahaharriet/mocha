@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import product.model.Product;
 
 public class ProductDAOImpel extends BaseDAO implements ProductDAO {
@@ -19,6 +20,7 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 	private static final String PRODUCT_INSERT_SQL="insert into product values(seq_product.nextval,?,?,?,?)";
 	private static final String PRODUCT_UPDATE_SQL="UPDATE product SET productname=?,imgname=?,description=?,price=? where productno=?";
 	private static final String PRODUCT_DELETE_SQL="DELETE FROM product WHERE productno=?";
+	private static final String PRODUCT_SELECT_FOR_PAGING_SQL="SELECT * from(SELECT ROWNUM as RN, products.*  from(SELECT * from product order by productno desc)products) where rn BETWEEN ? AND ?";
 	
 	@Override
 	public Product selectByproductno(int productno) {
@@ -290,6 +292,46 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 			closeDBObjects(resultSet, preparedStatement, connection);
 		}
 		
+		return products;
+	}
+
+
+	@Override
+	public List<Product> selectAll(int rowStartNumber, int rowEndNumber) {
+		List<Product> products = new ArrayList<Product>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+	
+		try {
+			connection=getConnection();
+			preparedStatement =connection.prepareStatement(PRODUCT_SELECT_FOR_PAGING_SQL);
+			preparedStatement.setInt(1, rowStartNumber);
+			preparedStatement.setInt(2, rowEndNumber);
+			
+			resultSet=preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				Product product = new Product();
+				product.setProductno(resultSet.getInt("productno"));
+				product.setProductname(resultSet.getString("productname"));
+				product.setimgname(resultSet.getString("imgname"));
+				product.setDescription(resultSet.getString("description"));
+				product.setPrice(resultSet.getInt("price"));
+				
+				products.add(product);
+				
+				
+				
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeDBObjects(resultSet, preparedStatement, connection);		
+		}	
 		return products;
 	}
 
