@@ -5,8 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#password_find").validate({
@@ -20,10 +22,10 @@ $(function(){
 			}
 		},
 		messages : {
-			memberid2 : {required :"아이디를 입력해주세요"},
-			membername2 : {required : "이름을 입력해주세요"},
+			memberid2 : {required :	"아이디를 입력해주세요."},
+			membername2 : {required : "이름을 입력해주세요."},
 			email2 : {
-				required :"이메일를 입력해 주세요",
+				required :"이메일를 입력해 주세요.",
 				email : "이메일 형식이 맞지 않습니다."
 			}
 		}
@@ -44,10 +46,10 @@ $(function(){
 		messages : {
 			
 			membername : {
-				required:"이름을 입력해주세요"
+				required:" 이름을 입력해주세요."
 			},
 			email : {
-				required :"이메일를 입력해 주세요",
+				required :"이메일를 입력해 주세요.",
 				email : "이메일 형식이 맞지 않습니다."
 			}
 		}
@@ -60,22 +62,36 @@ $(function(){
 <hr/>
 <h3>mocha mocha</h3>
 <hr/>
-<h4>아이디찾기</h4>
+<div class="jumbotron" style="padding-top:20px;width:50%;text-align:center;margin:auto;">
 <form action="id_find" method="post" id="id_find">
-<input type="text" placeholder="이름을 입력하세요" name="membername" id="membername"><br/>
-<input type="email" placeholder="이메일을 입력하세요" name="email" id="email"><br/>
-<input type="submit" value="확인" id="idclick"><br>
-${member.memberid}
+	<h4 style="text-align:center">아이디찾기</h4>
+	<div class="form-group">
+		<input type="text" placeholder="이름을 입력하세요" name="membername" id="membername"></td>
+	</div>
+	<div class="form-group">
+		<input type="email" placeholder="이메일을 입력하세요" name="email" id="email"><br/></td>
+	</div>
+		<input type="submit" value="확인" id="idclick" class="btn btn-primary form-control"><br>
+		${member.memberid}
+
 </form>
+</div>
 <hr/>
+<div class="jumbotron" style="padding-top:20px;width:50%;text-align:center;margin:auto;">
 <h4>비밀번호찾기</h4>
 <form action="password_find" method="post" id="password_find">
-
+<div class="form-group">
 <input type="text" placeholder="아이디를 입력해주세요" name="memberid2"  id="memberid2"><br/>
-<input type="text" placeholder="이름을 입력하세요" name="membername2" id="membername2"><br/>
+</div>
+<div class="form-group">
+<input type="text" placeholder="이름을 입력하세요" name="membername2" id="membername2" ><br/>
+</div>
+<div class="form-group">
 <input type="email" placeholder="이메일을 입력하세요" name="email2" id="email2"><br/>
-<input type="submit" value="확인" id="passwordclick">
-{member.password}
+</div>
+<input type="submit" value="확인" id="passwordclick" class="btn btn-primary form-control">
+${member.password}
 </form>
+</div>
 </body>
 </html>

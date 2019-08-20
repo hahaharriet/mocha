@@ -63,7 +63,7 @@ hr{
 		<form method="post" action="memberlogin"> 
 		<input type="text" placeholder="username" name="memberid"><br />
 		<input type="password" placeholder="password" name="password"><br />
-		<div class="alert alert-info">${message}</div>
+		<div class="alert alert-info"><br /><br />${message}</div>
 			<a href="find">아이디/비밀번호 찾기<br /></a>
 	
 		<input type="submit" value="로그인" id="loginclick" name="loginclick" class="button"><br />
