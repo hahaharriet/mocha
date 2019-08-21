@@ -84,8 +84,8 @@ public class ReviewController extends HttpServlet {
 
 			ReviewDAO dao = new ReviewDAOImpl();
 			int productno = 1;
-			// Integer.parseInt(req.getParameter("productno"));
-
+			//Integer.parseInt(req.getParameter("productno"));
+			
 			List<Review> lists = dao.selectByProductNo(productno);
 
 			req.setAttribute("latters", lists);

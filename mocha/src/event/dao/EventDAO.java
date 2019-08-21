@@ -10,10 +10,10 @@ public interface EventDAO {
 	List<Event> selectAll();//리스트	가라
 	
 	boolean insert(Event event);
-	List<Event> selectByEventNo(int eventno); //상세보기 후기
+	//List<Event> selectByEventNo(int eventno); //상세보기 후기
 	
-	//이벤트번호로 수정 삭제 처리
-	Event selectByReviewNo(int eventno);
+	//이벤트번호로  상세보기 수정 삭제 처리
+	Event selectByEventNo(int eventno);
 	
 	//페이징 처리
 	List<Event> selectAllPage(int rowStartNumber, int rowEndNumber);
@@ -24,5 +24,5 @@ public interface EventDAO {
 	//조회수 처리
 	void updateVisited(int no);
 	//상세 검색처리
-	List<Event> selectbyEventSubject(String EVENTSUBJECT);
+	List<Event> selectbyEventSubject(String eventsubject);
 }
