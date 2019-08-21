@@ -15,10 +15,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="로그아웃">
 </form><hr>
 </c:if>
-<<<<<<< HEAD
+
 <a href="mypage">My Page</a><br>
 
-=======
 <a href="mypage">My Page</a>
 	
 	<ul>
@@ -27,7 +26,9 @@
 		<li><a href="review_list">리스트</a></li>
 		
 		<li><a href="latter_req_list?reqPage=1">이대현</a></li>
+		<li><a href="product_req_list?reqPage=1">이대현상품목록</a></li>
+		<li><a href="product_req_manager_list?reqPage=1">이대현상품목록_매니저</a></li>		
 	</ul>
->>>>>>> branch 'master' of https://github.com/hahaharriet/mocha
+
 </body>
 </html>
