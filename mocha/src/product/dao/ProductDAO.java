@@ -17,6 +17,8 @@ public interface ProductDAO {
 		boolean productUpdate(Product product);
 		boolean productDelete(int id);
 		List<Product> selectAll(int rowStartNumber, int rowEndNumber);
+		List<Product>selectAllHot();
 
 }
+
 

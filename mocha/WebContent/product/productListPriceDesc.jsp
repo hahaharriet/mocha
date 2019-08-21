@@ -34,6 +34,25 @@
 					<td>${product.price}</td>					
 				</tr>	
 			</c:forEach>
+					<c:if test="${pageGroupResult.beforePage}">
+	<a href="product_req_desc_list?reqPage=${pageGroupResult.groupStartNumber-1}">
+	&#60;before</a>
+	</c:if>
+	<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
+		<c:choose>
+			<c:when test="${pageGroupResult.selectPageNumber==index}">
+				<span id="select"><a href="product_req_desc_list?reqPage=${index}">${index}</a></span>		
+			</c:when>
+			<c:otherwise>
+				<a href="product_req_desc_list?reqPage=${index}">${index}</a>
+			</c:otherwise>
+		
+		</c:choose>
+		
+	</c:forEach>
+	<c:if test="${pageGroupResult.afterPage}">
+	<a href="product_req_desc_list?reqPage=${pageGroupResult.groupEndNumber+1}">after&#62;</a>
+	</c:if>
 		</table>
 </body>
 </html>

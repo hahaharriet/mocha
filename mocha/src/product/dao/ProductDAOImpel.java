@@ -21,6 +21,7 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 	private static final String PRODUCT_UPDATE_SQL="UPDATE product SET productname=?,imgname=?,description=?,price=? where productno=?";
 	private static final String PRODUCT_DELETE_SQL="DELETE FROM product WHERE productno=?";
 	private static final String PRODUCT_SELECT_FOR_PAGING_SQL="SELECT * from(SELECT ROWNUM as RN, products.*  from(SELECT * from product order by productno desc)products) where rn BETWEEN ? AND ?";
+	private static final String PRODUCT_SELECT_HOT="SELECT distinct product.productno,product.productname,product.imgname,product.description,product.price,rank()over(order by orders.productno desc)as rk from product inner join orders on product.productno = orders.productno";
 	
 	@Override
 	public Product selectByproductno(int productno) {
@@ -324,6 +325,43 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 				
 				
 				
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			closeDBObjects(resultSet, preparedStatement, connection);		
+		}	
+		return products;
+	}
+
+
+	@Override
+	public List<Product> selectAllHot() {
+		List<Product> products = new ArrayList<Product>();
+		Connection connection = null;
+		PreparedStatement preparedStatement= null;
+		ResultSet resultSet = null;
+		
+		
+		try {
+			connection=getConnection();
+			preparedStatement =connection.prepareStatement(PRODUCT_SELECT_HOT);
+
+			resultSet=preparedStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				Product product = new Product();
+				product.setProductno(resultSet.getInt("p.productno"));
+				product.setProductname(resultSet.getString("p.productname"));
+				product.setimgname(resultSet.getString("p.imgname"));
+				product.setDescription(resultSet.getString("p.description"));
+				product.setPrice(resultSet.getInt("p.price"));
+				
+				
+				products.add(product);
+							
 			}
 				
 		} catch (SQLException e) {

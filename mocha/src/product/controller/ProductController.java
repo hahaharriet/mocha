@@ -23,7 +23,8 @@ import product.model.Product;
 
 
 @WebServlet(name="ProductController", urlPatterns = {"/product_list_m","/product_list_price_desc_m","/product_list_price_asc_m","/product_search_m",
-		"/product_detail_m","/product_list_manager_m","/product_update_m","/product_save_m","/product_input_m","/product_delete_m","/product_detail_cust_m","/product_req_list"})
+		"/product_detail_m","/product_list_manager_m","/product_update_m","/product_save_m","/product_input_m","/product_delete_m","/product_detail_cust_m","/product_req_list","/product_req_manager_list",
+		"/product_req_asc_list","/product_req_desc_list"})
 @MultipartConfig
 public class ProductController extends HttpServlet{
 
@@ -198,7 +199,7 @@ public class ProductController extends HttpServlet{
 			
 			RequestDispatcher rd= req.getRequestDispatcher("/product/productdetail.jsp");
 			rd.forward(req, resp);		
-		}/*else if(action.equals("product_req_list")) {
+		}else if(action.equals("product_req_list")) {
 			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
 			PageManager pm= new PageManager(requestPage);
 			
@@ -211,9 +212,50 @@ public class ProductController extends HttpServlet{
 			
 			RequestDispatcher rd = req.getRequestDispatcher("/product/productList.jsp");
 			rd.forward(req, resp);
+						
+		}else if(action.equals("product_req_manager_list")) {
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
+			ProductDAO dao = new ProductDAOImpel();
+			List<Product> products = dao.selectAll(pm.getPageRowResult().getRowStartNumber(), pm.getPageRowResult().getRowEndNumber());
+			req.setAttribute("products", products);
 			
 			
-		}*/
+			req.setAttribute("pageGroupResult", pm.getpageGroupResult(PageSQL.PRODUCT_SELECT_ALL_COUNT));
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/product/productListForManager.jsp");
+			rd.forward(req, resp);
+						
+		}else if(action.equals("product_req_asc_list")) {
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
+			ProductDAO dao = new ProductDAOImpel();
+			List<Product> products = dao.selectAll(pm.getPageRowResult().getRowStartNumber(), pm.getPageRowResult().getRowEndNumber());
+			req.setAttribute("products", products);
+			
+			
+			req.setAttribute("pageGroupResult", pm.getpageGroupResult(PageSQL.PRODUCT_SELECT_ALL_COUNT));
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/product/productListPriceAsc.jsp");
+			rd.forward(req, resp);
+						
+		}else if(action.equals("product_req_desc_list")) {
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
+			ProductDAO dao = new ProductDAOImpel();
+			List<Product> products = dao.selectAll(pm.getPageRowResult().getRowStartNumber(), pm.getPageRowResult().getRowEndNumber());
+			req.setAttribute("products", products);
+			
+			
+			req.setAttribute("pageGroupResult", pm.getpageGroupResult(PageSQL.PRODUCT_SELECT_ALL_COUNT));
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/product/productListPriceDesc.jsp");
+			rd.forward(req, resp);
+						
+		}
 		
 	}
 	
