@@ -74,6 +74,7 @@
       <li><a href="#">GOODS</a></li>
       <li><a href="#">EVENT</a></li>
       <li><a href="#">NOTICE</a></li>
+      <li><a href="product_req_list?reqPage=1">req리스트</a></li>
     </ul>
     <c:choose>
 	  <c:when test="${member !=null}">

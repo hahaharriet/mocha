@@ -49,8 +49,13 @@ public class ProductController extends HttpServlet{
 		
 		if(action.equals("product_list_m")) {
 			
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
+			
+			
 			ProductDAO dao = new ProductDAOImpel();			
-			List<Product> products = dao.selectAll();
+			List<Product> products = dao.selectAll(pm.getPageRowResult().getRowStartNumber(),pm.getPageRowResult().getRowEndNumber());
 			for(Product p:products) {
 				System.out.println(p);
 			}
@@ -61,6 +66,10 @@ public class ProductController extends HttpServlet{
 			rd.forward(req, resp);
 			
 		}else if (action.equals("product_list_price_desc_m")){
+			
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
 			
 			ProductDAO dao = new ProductDAOImpel();			
 			List<Product> products = dao.selectAllpricedesc();
@@ -75,6 +84,10 @@ public class ProductController extends HttpServlet{
 			
 			
 		}else if(action.equals("product_list_price_asc_m")) {
+			
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
 			ProductDAO dao = new ProductDAOImpel();			
 			List<Product> products = dao.selectAllpriceasc();
 			for(Product p:products) {
@@ -119,8 +132,12 @@ public class ProductController extends HttpServlet{
 			
 			
 		}else if (action.equals("product_list_manager_m")) {
+			
+			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
+			PageManager pm= new PageManager(requestPage);
+			
 			ProductDAO dao = new ProductDAOImpel();			
-			List<Product> products = dao.selectAll();
+			List<Product> products = dao.selectAll(pm.getPageRowResult().getRowStartNumber(),pm.getPageRowResult().getRowEndNumber());
 			for(Product p:products) {
 				System.out.println(p);
 			}
@@ -155,9 +172,11 @@ public class ProductController extends HttpServlet{
 			boolean result = dao.productInsert(product);
 			
 			System.out.println(result);
+			
+			resp.sendRedirect("product_req_manager_list?reqPage=1");
 
-			RequestDispatcher rd = req.getRequestDispatcher("product_list_manager_m");
-			rd.forward(req, resp);
+//			RequestDispatcher rd = req.getRequestDispatcher("product_list_manager_m");
+//			rd.forward(req, resp);
 			
 		}else if(action.equals("product_input_m")) {
 			
@@ -177,8 +196,7 @@ public class ProductController extends HttpServlet{
 			
 			System.out.println(result);
 			
-			RequestDispatcher rd = req.getRequestDispatcher("product_list_manager_m");
-			rd.forward(req, resp);
+			resp.sendRedirect("product_req_manager_list?reqPage=1");
 					
 		}else if(action.equals("product_delete_m")) {
 			int productno = Integer.parseInt(req.getParameter("productno"));
@@ -186,8 +204,7 @@ public class ProductController extends HttpServlet{
 			boolean result = dao.productDelete(productno);
 			System.out.println(result);
 			
-			RequestDispatcher rd = req.getRequestDispatcher("/product_list_manager_m");
-			rd.forward(req, resp);
+			resp.sendRedirect("product_req_manager_list?reqPage=1");
 			
 		}else if(action.equals("product_detail_cust_m")) {
 			int productno = Integer.parseInt(req.getParameter("productno"));
