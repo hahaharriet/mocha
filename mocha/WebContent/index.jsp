@@ -64,13 +64,13 @@
   </a>
 </div>
 <!--  -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default"  style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">mocha mocha</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.jsp">HOME</a></li>
+      <li><a href="index.jsp">HOME</a></li>
       <li><a href="#">GOODS</a></li>
       <li><a href="#">EVENT</a></li>
       <li><a href="#">NOTICE</a></li>

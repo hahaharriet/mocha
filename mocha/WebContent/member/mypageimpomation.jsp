@@ -4,80 +4,113 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style type="text/css">
-.conteiner{
-	width:1200px;
-	border: 1px solid black;
-}
-header{
-	border-bottom: 1px solid black;
-}
 
-nav{
-border-right: 1px solid black;
-	float:left;
-	margin:-1px;
-	width:200px;
-}
-ul{
-list-style-type:none;
-text-align:center;
-padding:0;
-}
-article{
-border-left: 1px solid black;
-float:left;
-padding-top:50px;
-padding-bottom:380px;
-padding-left:100px;
-}
-footer{
-text-align:right;
-border-top: 1px solid black;
-clear:both;
-}
-#menu{
-font-size:25px;
-border-bottom:1px solid black;
-padding-bottom:20px
-}
-a{
-color:orange;
-}
-a:link {
-  text-decoration: none;
-}
-.button{
-border-radius: 12px;
-}
-span{
-border-style: ridge;
-}
-div{
-margin:10px;
-border-bottom:3px dotted green;
-}
+<style type="text/css">
+    body {
+        text-align: center;
+        color: #FFF;
+        width: 600px;
+    }
+    div#wapper {
+        width: 100%;
+        text-align: left;
+        min-height: 300px;
+        margin: 0 auto;
+    }
+    navs, section {
+        border: 1px solid #999;
+        margin: 5px;
+        padding: 10px;
+    }
+    navs, section{
+        float: left;
+        height: 200px;
+        padding-bottom:400px;
+    }
+    navs {
+        background-color: ;
+        width: 200px;
+        margin-right:0;
+    }
+    section {
+        background-color: whith;   
+        width: 804px;
+        margin-left:-1px;
+    }
+    article {
+        width: 90%;
+        margin: 20px;
+        
+    }
+    ul{
+    	padding:0;
+    }
+	.mm{
+		list-style-type: none;
+		text-align:center;
+		padding-top: 20px;
+		font-size:15px;
+	}
+	#text{
+		font-size:20px;
+		margin:20px;
+	}
+	tr{
+		height:30px;
+	}
+	
 </style>
+ 
 </head>
-<body>
-	<div class=conteiner>
-		<header>
-			<a href=""><img src=""></a><h1>mocha mocha</h1>
-		</header>
-		<nav>
-			<ul >
-				<li id="menu"><strong>my page</strong></li><br>
-				<a href="mypage"><li><strong>회원 정보</strong></li></a><br>
-				<a href="update"><li><strong>회원 수정</strong></li></a>
-			</ul>
+	<body>
+	    <div class="container">
+	       
+	   	<h1>mocha mocha</h1>
+			<nav class="navbar navbar-default"  style="background-color: #F8F8FF">
+		  	<div class="container-fluid">
+		    <div class="navbar-header">
+		    	<a class="navbar-brand" href="index.jsp">HOME</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="#">GOODS</a></li>
+		      <li><a href="#">EVENT</a></li>
+		      <li><a href="#">NOTICE</a></li>
+		    </ul>
+		  </div>
 		</nav>
-		<article>	
-			<h2>회원정보</h2>
-				아이디: <span>${members.memberid}</span><br><br>
-				이름: <span>${members.membername }</span><br><br>
-				이메일: <span>${members.email}</span><br><br>
-		</article>
-		<footer>&#173;</footer>
+	
+	    <navs>
+	    	<span style="text-align:center;font-size:20px;"><p style="border-bottom:1px solid #999;"><strong>my page</strong></p></span>
+	        	<ul>
+	            	<li class="mm"><a href="mypage">회원 정보</a></li>
+	                <li class="mm"><a href="update">회원 수정</a></li>
+	                <li class="mm"><a href="">link</a></li>
+	        	</ul>
+	    </navs>
+	        <section>
+	            <p id="text"><strong>회원정보</strong></p>
+	            <article>
+	            	<table width=400>
+	            		<tr>
+	            			<td>아이디:</td>
+	            			<td>${members.memberid}</td>
+	            		</tr>
+	            		<tr>
+	            			<td>이름:</td>
+	            			<td>${members.membername}</td>
+	            		</tr>
+	            		<tr>
+	            			<td>이메일:</td>
+	            			<td>${members.email}</td>
+	            		</tr>
+	            	</table>
+	            </article>
+	        </section>
 		</div>
 	</body>
 </html>

@@ -50,6 +50,7 @@ public class MemberController extends HttpServlet{
 			Member member = (Member) sesstion.getAttribute("member");
 			Member members = dao.selectByNo(member.getMemberno());
 			req.setAttribute("members",members );
+			
 			RequestDispatcher rd = req.getRequestDispatcher("/member/mypageupdate.jsp");
 			rd.forward(req, resp);
 		}
@@ -142,7 +143,7 @@ public class MemberController extends HttpServlet{
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
 			dao.updateEmail(member);
 			
-			RequestDispatcher disptcher = req.getRequestDispatcher("update"); 
+			RequestDispatcher disptcher = req.getRequestDispatcher("mypage"); 
 			disptcher.forward(req, resp);
 		}else if(action.equals("update_password")) {
 			MemberDAO dao = new MemberDAOImpl();
@@ -209,7 +210,6 @@ public class MemberController extends HttpServlet{
 				RequestDispatcher disptcher = req.getRequestDispatcher("/member/repassword.jsp"); 
 				disptcher.forward(req, resp);
 			}else {
-			
 				RequestDispatcher disptcher = req.getRequestDispatcher("/member/id-passwordfind.jsp"); 
 				disptcher.forward(req, resp);
 			}
@@ -220,14 +220,16 @@ public class MemberController extends HttpServlet{
 			member.setPassword(req.getParameter("password"));
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
 			dao.updatePassword(member);
+			
 			RequestDispatcher disptcher = req.getRequestDispatcher("/member/repasswordfinish.jsp"); 
 			disptcher.forward(req, resp);
 		}
 		else if (action.equals("emailcheck")) {
 			MemberDAO dao = new MemberDAOImpl();
 			int count = dao.checkByEmail(req.getParameter("email"));
+			String contains = req.getParameter("email");
 			
-			if(count==0) {
+			if(count==0 && contains.contains("@")) {
 				req.setAttribute("message1", "사용 할수 있는 이메일입니다.");
 			}else {
 				req.setAttribute("message1", "사용 할수 없는 이메일입니다.");				

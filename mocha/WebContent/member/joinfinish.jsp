@@ -4,13 +4,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  width:100px;
+}
+
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+</style>
 <title>회원가입 완료</title>
 </head>
 	<body>
-		<img src=""><h3>회원가입</h3>
-		<hr>
-			<h4>회원가입이 완료 되었습니다</h4>
-		<hr>
-			<a href="index"><input type="button" value="홈으로"></a><a href="login"><input type="button" value="로그인"></a>
+	<div style="margin-top:150px;">
+		<fieldset style="width:20%;text-align:center;margin:auto;width:50%">
+			<legend>회원가입</legend>
+			
+				<h4>회원가입이 완료 되었습니다</h4>
+			<hr>
+				<a href="index"><button class="button button5">홈으로</button></a>
+				<a href="login"><button class="button button5">로그인</button></a>
+		</fieldset>
+	</div>
 	</body>
 </html>

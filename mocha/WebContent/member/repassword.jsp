@@ -38,7 +38,7 @@ $(function(){
 <title>비밀번호 변경</title>
 </head>
 	<body>
-		<img src=""><h3>비밀번호 변경</h3>
+		<h3>비밀번호 변경</h3>
 			<hr>
 				<form action="repassword" method="post" id="update">
 					<input type="hidden" value="${member.memberno}" name="memberno">
