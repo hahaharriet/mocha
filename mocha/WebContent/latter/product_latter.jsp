@@ -61,7 +61,7 @@
 					class="form-control" type="submit" value="검색" />
 			</div>
 		</form>
-
+		
 		<c:if test="${empty latters}">
 			<hr />
 		검색된 결과가 존재하지 않습니다.
