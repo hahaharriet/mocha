@@ -9,11 +9,9 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style type="text/css">
-.jumbotron{
-text-align:center;
-background:#D3D3D3;
-}
-
+	tr,td{
+		border:1px solid black;
+	}
 </style>
 <script type="text/javascript">
 
@@ -115,7 +113,7 @@ $(function(){
 <title>회원가입</title>
 </head>
 <body>
-<h1>회원가입</h1>
+<h1>MOCHA MOCHA</h1>
 <nav class="navbar navbar-default"  style="background-color: #F8F8FF">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -139,37 +137,48 @@ $(function(){
 	</ul>
   </div>
 </nav>
-
- <div class="container">
-	<div class="col-lg-4"></div>
-	<div calss="col-lg-4">
-	<div class="jumbotron" style="margin-top:60px;padding-top:20px;">
-		<form method="post" action="member_save" name="f" id="signupForm" class="form-horizontal" role="form">
-			<h3 style="text-align:center">회원가입</h3>
-			<div class="form-group" >
-				<input type="text" placeholder="아이디" name="memberid" id="memberid" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" class="form-control" >
-				<input type="button" value="중복확인 " class="form-inline"" id="checkid" style="float:right"><br/><div class="console"></div>
-			</div>
-			<div class="form-group">
-				<input type="password" placeholder="비밀번호" name="password" id="password" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"><br/>
-			</div>
-			<div class="form-group">
-				<input type="password" placeholder="비밀번호확인" name="repassword" id="repassword" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"><br/>
-			</div>
-			<div class="form-group">
-				<input type="text" placeholder="이름" name="membername" id="membername" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"><br/>
-			</div>
-			<div class="form-group">
-				<input type="email" placeholder="이메일" name="email" id="email"onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" class="form-control">
-				<input type="button" value="중복확인" name="emailcheck" class="btn btn-light" id="emailcheck" style="float:right">&nbsp;&nbsp;<div class="console1" ></div>
-			</div>
-			<div class="form-group">
-				약관의 동의 합니까?&nbsp;&nbsp;<input type="checkbox" id="agree" name="agree" style="text-align:center"><br/>
-			</div>
-			<input type="submit" class="btn btn-light" value="회원가입" ><br/>
-		</form>
+	<div class="container">
+	<form method="post" action="member_save" name="f" id="signupForm">
+		<table class="table table-bordered table-hover" style="text-align:center;">
+			<thead>
+				<tr>
+					<td colspan="3">회원가입</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="width:150px">아이디</td>
+					<td><input type="text" placeholder="아이디" name="memberid" id="memberid" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" class="form-control" ></td>
+					<td><input type="button" value="중복확인 " id="checkid" class="btn btn-light"><br/><div class="console"></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td colspan="2"><input type="password" placeholder="비밀번호" name="password" id="password" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"></td>
+				</tr>
+				<tr>
+					<td>비밀번호 확인</td>
+					<td colspan="2"><input type="password" placeholder="비밀번호확인" name="repassword" id="repassword" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td colspan="2"><input type="text" placeholder="이름" name="membername" id="membername" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"></td>
+					
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td><input type="email" placeholder="이메일" name="email" id="email"onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" class="form-control"></td>
+					<td style="width:130px"><input type="button" value="중복확인" name="emailcheck" class="btn btn-light" id="emailcheck"><div class="console1" ></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:left;padding-left:80px">*약관의 동의 합니까?</td>
+					<td>예&nbsp;<input type="checkbox" id="agree" name="agree" style="text-align:center"></td>
+				</tr>
+				<tr>
+					<td colspan="3"><input type="submit" class="btn btn-light" value="회원가입" ></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
 	</div>
-	</div>
-</div>
 </body>
 </html>
