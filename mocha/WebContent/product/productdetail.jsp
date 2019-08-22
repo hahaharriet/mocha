@@ -21,7 +21,7 @@
 		${product.price}	
 		
 
-	
+		<a href="Orders_input.do?productno=${product.productno}">주문하기</a>
 
 </body>
 </html>

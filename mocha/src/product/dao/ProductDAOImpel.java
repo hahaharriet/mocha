@@ -22,6 +22,9 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 	private static final String PRODUCT_DELETE_SQL="DELETE FROM product WHERE productno=?";
 	private static final String PRODUCT_SELECT_FOR_PAGING_SQL="SELECT * from(SELECT ROWNUM as RN, products.*  from(SELECT * from product order by productno desc)products) where rn BETWEEN ? AND ?";
 	private static final String PRODUCT_SELECT_HOT="SELECT distinct product.productno,product.productname,product.imgname,product.description,product.price,rank()over(order by orders.productno desc)as rk from product inner join orders on product.productno = orders.productno";
+	private static final String PRODUCT_SELECT_FOR_PAGING_SQL_DESC="SELECT * from(SELECT ROWNUM as RN, products.*  from(SELECT * from product order by price desc)products) where rn BETWEEN ? AND ?";
+	private static final String PRODUCT_SELECT_FOR_PAGING_SQL_ASC="SELECT * from(SELECT ROWNUM as RN, products.*  from(SELECT * from product order by price asc)products) where rn BETWEEN ? AND ?";
+	
 	
 	@Override
 	public Product selectByproductno(int productno) {
@@ -61,7 +64,7 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 
 
 	@Override
-	public List<Product> selectAllpricedesc() {
+	public List<Product> selectAllpricedesc(int rowStartNumber, int rowEndNumber) {
 		List<Product> products = new ArrayList<Product>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -70,7 +73,9 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 		
 		try {
 			connection = getConnection();
-			preparedStatement = connection.prepareStatement(PRODUCT_SELECTALL_PRICE_DESC_SQL);
+			preparedStatement = connection.prepareStatement(PRODUCT_SELECT_FOR_PAGING_SQL_DESC);
+			preparedStatement.setInt(1, rowStartNumber);
+			preparedStatement.setInt(2, rowEndNumber);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
@@ -95,7 +100,7 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 
 
 	@Override
-	public List<Product> selectAllpriceasc() {
+	public List<Product> selectAllpriceasc(int rowStartNumber, int rowEndNumber) {
 		List<Product> products = new ArrayList<Product>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -104,7 +109,9 @@ public class ProductDAOImpel extends BaseDAO implements ProductDAO {
 		
 		try {
 			connection = getConnection();
-			preparedStatement = connection.prepareStatement(PRODUCT_SELECTALL_PRICE_ASC_SQL);
+			preparedStatement = connection.prepareStatement(PRODUCT_SELECT_FOR_PAGING_SQL_ASC);
+			preparedStatement.setInt(1, rowStartNumber);
+			preparedStatement.setInt(2, rowEndNumber);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {

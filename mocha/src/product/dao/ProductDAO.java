@@ -9,8 +9,8 @@ public interface ProductDAO {
 
 		Product selectByproductno(int productno);
 		List<Product> selectAll();
-		List<Product> selectAllpricedesc();
-		List<Product> selectAllpriceasc();
+		List<Product> selectAllpricedesc(int rowStartNumber, int rowEndNumber);
+		List<Product> selectAllpriceasc(int rowStartNumber, int rowEndNumber);
 		Product SelectById(int productno);
 		List<Product>SelectByName(String productname);
 		boolean productInsert(Product product);
