@@ -5,4 +5,8 @@
 <idcheck>
 	<result>${message}</result>
 	<result1>${message1}</result1>
+	<result>${email}</result>
+	<result>${idcheck}</result>
+	<count>${count}</count>
+	<text>${text}</text>
 </idcheck>

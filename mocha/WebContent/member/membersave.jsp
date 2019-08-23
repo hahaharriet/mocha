@@ -12,8 +12,126 @@
 	tr,td{
 		border:1px solid black;
 	}
+	#train{
+		height:200px;
+		width:1500px;
+		background-image: url("member/img/train.jpg");
+	}
 </style>
+
+
 <script type="text/javascript">
+
+var idck=0;
+var idch1=0;
+$(function(){
+	$("#checkid").click(function(){	
+		var input_val = $("#memberid").val();		
+	if(!input_val){
+		alert("아이디를 입력해주세요.");
+		return false;
+	}	
+	var url = "idcheck";
+	$.get(url, {"memberid":input_val},function(xml){
+		var result = $(xml).find("result").text();
+		var count = $(xml).find("count").text();
+		$(".console").html(result);			
+		if(count>0){
+			idck = 0;
+			idck1 = document.getElementById("memberid").value;
+			return false;
+		}else{
+			idck=1;
+			idck1 = document.getElementById("memberid").value;
+			return true;
+		}
+		});	
+	
+	});
+});
+var emailck=0;
+var emailch1 = 0;
+$(function(){	
+	$("#emailcheck").click(function(){		
+		var input_val = $("#email").val();
+	if(!input_val){
+		alert("이메일을 입력해주세요.");
+		return false;
+	}
+	var url = "emailcheck";
+	$.get(url, {"email":input_val},function(xml){
+		var result = $(xml).find("result1").text();
+		var count = $(xml).find("count").text();
+		$(".console1").html(result);
+		if(count>0){
+			emailck = 0;
+			emailck1 = document.getElementById("email").value;
+			return false;
+		}else{
+			emailck=1;
+			emailck1 = document.getElementById("email").value;
+			return true;
+		}
+		});
+	});		
+});
+
+
+
+
+
+
+
+
+$(function(){
+	$("#jointest").click(function(){
+	var result = confirm("회원가입 하시겠습니까?");
+	if( result == true ){
+		if(idck==0||emailck ==0 || emailck1 != document.getElementById("email").value || idck1 != document.getElementById("memberid").value){
+			alert("아이디/이메일 중복확인을 해주세요");
+	        return false;
+		}
+		
+		else if (idck==1||emailck ==1 ){
+			"#singupForm"
+		}
+		}else if( result == false ){
+
+		return false;
+		}
+	
+	});
+});
+
+function mykeydown() {
+	var input_val = $("#memberid").val();		
+	idck=0;
+	var url = "text";
+	$.get(url, {"memberid":input_val},function(xml){
+		var result = $(xml).find("text").text();
+		$(".console").html(result);
+	});
+}
+
+function mykeydown1() {
+	var input_val = $("#email").val();		
+	emailck=0;
+	var url = "text";
+	$.get(url, {"email":input_val},function(xml){
+		var result = $(xml).find("text").text();
+		$(".console1").html(result);
+	});
+}
+
+
+
+
+
+
+
+
+
+
 
 function noSpaceForm(obj) { 
 	var str_space = /\s/;
@@ -24,39 +142,7 @@ function noSpaceForm(obj) {
 	    return false;
 	}
 }
-$(function(){
-	$("#checkid").click(function(){
-		
-		var input_val = $("#memberid").val();
-	
-	if(!input_val){
-		alert("아이디를 입력하세요");
-		return false;
-	}
-	
-	var url = "idcheck";
-	
-	$.get(url, {"memberid":input_val},function(xml){
-		var result = $(xml).find("result").text();
-		$(".console").html(result);
-		});
-	});		
-});
-$(function(){
-	
-	$("#emailcheck").click(function(){
-		var input_val = $("#email").val();
-		if(!input_val){
-			alert("이메일를 입력하세요");
-			return false;
-		}
-		var url = "emailcheck";
-	$.get(url,{"email":input_val},function(xml){
-		var result = $(xml).find("result1").text();
-		$(".console1").html(result);
-	});
-	});
-});
+
 $(function(){
 	$("#signupForm").validate({
 		debug : false,
@@ -105,7 +191,7 @@ $(function(){
 				required :"이메일를 입력해 주세요",
 				email : "이메일 형식이 맞지 않습니다."
 			},
-			agree : "약관 동의 하십시오 "
+			agree : "약관 동의 "
 		}
 	});
 });
@@ -142,14 +228,14 @@ $(function(){
 		<table class="table table-bordered table-hover" style="text-align:center;">
 			<thead>
 				<tr>
-					<td colspan="3">회원가입</td>
+					<td colspan="3" style="font-size:20px"><strong>회원가입</strong></td>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td style="width:150px">아이디</td>
-					<td><input type="text" placeholder="아이디" name="memberid" id="memberid" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" class="form-control" ></td>
-					<td><input type="button" value="중복확인 " id="checkid" class="btn btn-light"><br/><div class="console"></td>
+					<td><input type="text" placeholder="아이디" name="memberid" id="memberid" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"onkeydown="mykeydown()" class="form-control" ><div class="console"/></td>
+					<td><input type="button" value="중복확인 " id="checkid" class="btn btn-outline-info"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -161,24 +247,25 @@ $(function(){
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td colspan="2"><input type="text" placeholder="이름" name="membername" id="membername" class="form-control" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"></td>
+					<td colspan="2"><input type="text" placeholder="이름" name="membername" id="membername" class="form-control" onkeydown="mykeydown()" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);"></td>
 					
 				</tr>
 				<tr>
 					<td>이메일</td>
-					<td><input type="email" placeholder="이메일" name="email" id="email"onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" class="form-control"></td>
-					<td style="width:130px"><input type="button" value="중복확인" name="emailcheck" class="btn btn-light" id="emailcheck"><div class="console1" ></td>
+					<td><input type="email" placeholder="이메일" name="email" id="email" onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);" onkeydown="mykeydown1()" class="form-control"><div class="console1"></div></td>
+					<td style="width:130px"><input type="button" value="중복확인" name="emailcheck" class="btn btn-outline-info" id="emailcheck"></td>
 				</tr>
 				<tr>
-					<td colspan="2" style="text-align:left;padding-left:80px">*약관의 동의 합니까?</td>
+					<td colspan="2" style="text-align:left;padding-left:80px">*약관의 동의 합니까?<br><label class="error" for="agree"/></td>
 					<td>예&nbsp;<input type="checkbox" id="agree" name="agree" style="text-align:center"></td>
 				</tr>
 				<tr>
-					<td colspan="3"><input type="submit" class="btn btn-light" value="회원가입" ></td>
+					<td colspan="3"><input type="submit" id="jointest"class="btn btn-outline-info" value="회원가입" ></td>
 				</tr>
 			</tbody>
 		</table>
 	</form>
 	</div>
+	<div id="train"></div>
 </body>
 </html>

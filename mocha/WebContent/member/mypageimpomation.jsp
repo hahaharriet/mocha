@@ -63,7 +63,11 @@
 	tr{
 		height:30px;
 	}
-	
+	#train{
+		height:200px;
+		width:1500px;
+		background-image: url("member/img/train.jpg");
+	}
 </style>
  
 </head>
@@ -87,8 +91,8 @@
 	    <navs>
 	    	<span style="text-align:center;font-size:20px;"><p style="border-bottom:1px solid #999;"><strong>my page</strong></p></span>
 	        	<ul>
-	            	<li class="mm"><a href="mypage">회원 정보</a></li>
-	                <li class="mm"><a href="update">회원 수정</a></li>
+	            	<li class="mm"><a href="mypage.do">회원 정보</a></li>
+	                <li class="mm"><a href="update.do">회원 수정</a></li>
 	                <li class="mm"><a href="">link</a></li>
 	        	</ul>
 	    </navs>
@@ -112,5 +116,6 @@
 	            </article>
 	        </section>
 		</div>
+		<div id="train"></div>
 	</body>
 </html>

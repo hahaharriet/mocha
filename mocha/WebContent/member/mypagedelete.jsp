@@ -15,7 +15,7 @@
 		$("#delete").click(function(){
 			var con= confirm("탈퇴하시겠습니까?");
 			if(con==true){
-				$("form").attr({action:"member_delete",method :"post"}).submit();
+				$("form").attr({action:"member_delete.do",method :"post"}).submit();
 			}
 			else if(con !=true){
 				alert("취소되었습니다.")
@@ -84,7 +84,15 @@
 		font-size:20px;
 		margin:20px;
 	}
-
+	#train{
+		height:200px;
+		width:1500px;
+		background-image: url("member/img/train.jpg");
+	}
+	tr{
+		margin:30px;
+		height:30px;
+	}
 </style>
  
 </head>
@@ -116,16 +124,32 @@
 	        <section>
 	            <p id="text"><strong>회원탈퇴</strong></p>
 	            <article>
-	               <form action="member_delete" method="post" if="form">
-						<input type="hidden" name ="memberno"value="${member.memberno}">
-						아이디 : <input type="text" name="memberid"><br>
-						비밀번호 : <input type="password" name="password"><br>
-						이름 : <input type="text" name="membername"><br>
-						이메일 : <input type="email" name ="email"><hr>
-						<button type="button" id="delete" class="btn btn-outline-primary">회원탈퇴</button>
+	               <form action="member_delete.do" method="post" if="form">
+	               	<table>
+	               		<input type="hidden" name ="memberno"value="${member.memberno}">
+	               		<tr>
+	               			<td>아이디 :</td>
+	               			<td><input type="text" name="memberid"></td>
+	               		</tr>
+	               		<tr>
+	               			<td>비밀번호 :</td>
+	               			<td><input type="password" name="password"></td>
+	               		</tr>
+	               		<tr>
+	               			<td>이름 :</td>
+	               			<td><input type="text" name="membername"></td>
+	               		</tr>
+	               		<tr>
+	               			<td>이메일 : </td>
+	               			<td><input type="email" name ="email"></td>
+	               		</tr>
+	               	</table>
+	               	<hr>
+					<button type="button" id="delete" style="float:right"class="btn btn-danger">회원탈퇴</button>
 					</form>
 	            </article>
 	        </section>
 		</div>
+		<div id="train"></div>
 	</body>
 </html>
