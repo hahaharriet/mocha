@@ -87,36 +87,21 @@ public class ReviewController extends HttpServlet {
 			 * req.setAttribute("latters", lists);
 			 */
 
-		} else if (action.equals("Lee")) {
-
-			ReviewDAO dao = new ReviewDAOImpl();
-			
-			
-			
-			int productno = Integer.parseInt(req.getParameter("productno"));
-			
-							
-			List<Review> lists = dao.selectByProductNo(productno);
-
-			
-			RequestDispatcher rd = req.getRequestDispatcher("latter_req_list?reqPage=1");
-			rd.forward(req, resp);
 		} else if (action.equals("review_input")) {
 			
 			ReviewDAO dao = new ReviewDAOImpl();
-			OrdersDAO dao1 = new OrdersDAOImpel();
 			
-			/*int memberno = Integer.parseInt(req.getParameter("memberno"));
-			int productno = Integer.parseInt(req.getParameter("productno"));
-			*/
-			//List<Orders> orderslist = dao1.SelectAll(memberno, productno);
-			//req.setAttribute("productno", orderslist);
-			//req.setAttribute("memberno", orderslist);
-			int productno = 1;//Integer.parseInt(req.getParameter("productno")); 
-					/*Integer.parseInt(req.getParameter("productno"));*/
+			int prodNum = Integer.parseInt(req.getParameter("productno"));
+			   ProductDAOImpel odo=new ProductDAOImpel();
+			   Product p = odo.selectByproductno(prodNum);
+			   
+			   req.setAttribute("product", p);
 				
-			List<Review> lists = dao.selectByProductNo(productno);
+			List<Review> lists = dao.selectByProductNo(prodNum);
 			req.setAttribute("latters", lists);
+			
+			
+			
 			
 			RequestDispatcher rd = req.getRequestDispatcher("/latter/proudct_insert.jsp");
 			rd.forward(req, resp);
@@ -128,13 +113,17 @@ public class ReviewController extends HttpServlet {
 			review.setContent(req.getParameter("content"));
 			review.setRate(Integer.parseInt(req.getParameter("rate")));
 			review.setProductno(Integer.parseInt(req.getParameter("productno")));
+			
 			ReviewDAO dao = new ReviewDAOImpl();
 			boolean result = dao.insert(review);
-
+			
+			System.out.println(review);
+			
 			System.out.println(result);
-
-			RequestDispatcher rd = req.getRequestDispatcher("latter_req_list?reqPage=1");
-			rd.forward(req, resp);
+			//resp.sendRedirect("latter_req_list?reqPage=1");
+			resp.sendRedirect("./latter_req_list?reqPage=1");
+			//RequestDispatcher rd = req.getRequestDispatcher("latter_req_list?reqPage=1");
+			//rd.forward(req, resp);
 
 		} else if (action.equals("latter_req_list")) {
 

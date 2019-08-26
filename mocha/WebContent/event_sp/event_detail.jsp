@@ -137,7 +137,7 @@ $(function(){
 	
 	
 		<div class="container">
-		<c:if test="${member.memberid eq 'adimn123'}">
+		<c:if test="${member.memberid eq 'admin'}">
 			<form action="event_update" method="post" id="signupForm1">
 				<table class="table table-bordered table-hover" style="text-align:center;">											
 							<input type="hidden" name="eventno" value="${events.eventno}">											
@@ -174,7 +174,7 @@ $(function(){
 	
 	</div>	
 	  	<div class="container">
-		<c:if test="${member.memberid != 'adimn123'}">
+		<c:if test="${member.memberid != 'admin'}">
 			<form>
 				<table class="table table-bordered table-hover" style="text-align:center;">											
 							<input type="hidden" name="eventno" value="${events.eventno}">											
