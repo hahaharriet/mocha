@@ -26,7 +26,7 @@ public class FileManagerServlet extends HttpServlet {
 		int lastIndex = uri.lastIndexOf("/");		
 		String filename = uri.substring(lastIndex + 1);		
 
-		String imgpath = getServletContext().getRealPath("/WEB-INF") + "\\" + filename;
+		String imgpath ="C:\\fileserver" + "\\" + filename;
 
 		File file = new File(imgpath);
 		

@@ -77,9 +77,10 @@ font-size:25px;
 					<td>${order.productname}</td>
 					<td>${order.ordersprice}원</td>
 					<td>${order.orderdate}</td>
+					
 					<td> <a  id="cancel" href="orders_delete?orderid=${order.orderid}">주문취소</a>
 					<span>/</span><a
-					 class="btn btn-link"	href="review_input">review</a></td>
+					 class="btn btn-link"	href="review_input?productno=${order.productno}">review</a></td>
 				</tr>
 				
 

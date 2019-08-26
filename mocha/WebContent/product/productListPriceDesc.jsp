@@ -28,7 +28,7 @@
 			<c:forEach var="product" items="${products}">
 				<tr>
 					<td>${product.productno}</td>
-					<td><%-- <a href="product_detail?productno=${product.productno}"> --%>${product.productname}</td>
+					<td><a href="product_detail_cust_m?productno=${product.productno}">${product.productname}</td>
 					<td><img src="filemanager/${product.imgname}"/></td>
 					<td>${product.description}</td>
 					<td>${product.price}</td>					

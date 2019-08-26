@@ -143,7 +143,7 @@ public class ProductController extends HttpServlet{
 			
 			/* file save */
 			if (fileName != null && !fileName.isEmpty()) {
-				part.write(getServletContext().getRealPath("/WEB-INF") + "/" + fileName);
+				part.write("C:\\fileserver" + "/" + fileName);
 			}
 	
 			ProductDAO dao = new ProductDAOImpel();
