@@ -79,7 +79,7 @@
     <c:choose>
 	  <c:when test="${member !=null}">
 	  	<ul class="nav navbar-nav navbar-right">
-			<li><a href="mypage">My Page</a></li>
+			<li><a href="mypage.do">My Page</a></li>
 			<li>
 				<c:if test="${member !=null}">
 					<a href="logout">로그아웃</a>

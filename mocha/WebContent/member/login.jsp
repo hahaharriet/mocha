@@ -77,7 +77,11 @@ $(function(){
         top: -11px;
         z-index: 1;
     }   
-
+	#train{
+		height:200px;
+		width:1500px;
+		background-image: url("member/img/train.jpg");
+	}
 </style>
 <title>로그인 화면</title>
 </head>
@@ -95,8 +99,6 @@ $(function(){
 		    </ul>
 		  </div>
 		</nav>
-		
-			<br><br><br>
 			<div class="login-form">
 	    <form action="memberlogin" method="post">
 	        <h2 class="text-center">Sign in</h2>   
@@ -124,6 +126,7 @@ $(function(){
 			<a href="join" class="btn btn-info">회원가입</a>	
 	        </div>
 	    </form>
-	</div>		
+	</div>
+	<div id="train"></div>
 	</body>
 </html>

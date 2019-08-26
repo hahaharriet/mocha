@@ -26,7 +26,7 @@
 			
 				<h4>회원가입이 완료 되었습니다</h4>
 			<hr>
-				<a href="index"><button class="button button5">홈으로</button></a>
+				<a href="index.jsp"><button class="button button5">홈으로</button></a>
 				<a href="login"><button class="button button5">로그인</button></a>
 		</fieldset>
 	</div>

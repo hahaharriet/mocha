@@ -16,7 +16,7 @@ import member.dao.MemberDAO;
 import member.dao.MemberDAOImpl;
 import member.model.Member;
 @WebServlet(name="MemberController",urlPatterns= 
-{"/member_save","/mypage","/join","/memberlogin","/login","/update","/idcheck","/logout","/update_name","/update_email","/update_password","/member_delete","/delete","/find","/id_find","/password_find","/repassword","/emailcheck"})
+{"/member_save","/mypage.do","/join","/memberlogin","/login","/update.do","/idcheck","/logout","/update_name.do","/update_email.do","/update_password.do","/member_delete.do","/delete.do","/find","/id_find","/password_find","/repassword","/emailcheck"})
 public class MemberController extends HttpServlet{
 
 	@Override
@@ -44,7 +44,7 @@ public class MemberController extends HttpServlet{
 			RequestDispatcher rd = req.getRequestDispatcher("/member/login.jsp");
 			rd.forward(req, resp);
 		}
-		else if(action.equals("update")) {
+		else if(action.equals("update.do")) {
 			MemberDAO dao = new MemberDAOImpl();
 			HttpSession sesstion = req.getSession();
 			Member member = (Member) sesstion.getAttribute("member");
@@ -54,7 +54,7 @@ public class MemberController extends HttpServlet{
 			RequestDispatcher rd = req.getRequestDispatcher("/member/mypageupdate.jsp");
 			rd.forward(req, resp);
 		}
-		else if(action.equals("mypage")) {
+		else if(action.equals("mypage.do")) {
 			MemberDAO dao = new MemberDAOImpl();
 			HttpSession sesstion = req.getSession();
 			Member member = (Member) sesstion.getAttribute("member");
@@ -64,7 +64,7 @@ public class MemberController extends HttpServlet{
 			RequestDispatcher rd = req.getRequestDispatcher("/member/mypageimpomation.jsp");
 			rd.forward(req, resp);
 		}
-		else if(action.equals("delete")) {
+		else if(action.equals("delete.do")) {
 			RequestDispatcher rd = req.getRequestDispatcher("/member/mypagedelete.jsp");
 			rd.forward(req, resp);
 		}
@@ -135,7 +135,7 @@ public class MemberController extends HttpServlet{
 			
 			RequestDispatcher disptcher = req.getRequestDispatcher("mypage"); 
 			disptcher.forward(req, resp);
-		}else if(action.equals("update_email")) {
+		}else if(action.equals("update_email.do")) {
 			MemberDAO dao = new MemberDAOImpl();
 			Member member = new Member();
 			
@@ -145,7 +145,7 @@ public class MemberController extends HttpServlet{
 			
 			RequestDispatcher disptcher = req.getRequestDispatcher("mypage"); 
 			disptcher.forward(req, resp);
-		}else if(action.equals("update_password")) {
+		}else if(action.equals("update_password.do")) {
 			MemberDAO dao = new MemberDAOImpl();
 			Member member = new Member();
 			
@@ -155,7 +155,7 @@ public class MemberController extends HttpServlet{
 			
 			RequestDispatcher disptcher = req.getRequestDispatcher("/member/mypageimpomation.jsp"); 
 			disptcher.forward(req, resp);
-		}else if (action.equals("member_delete")) {
+		}else if (action.equals("member_delete.do")) {
 			MemberDAO dao = new MemberDAOImpl();
 			
 			int memberno = Integer.parseInt(req.getParameter("memberno"));

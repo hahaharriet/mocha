@@ -24,6 +24,7 @@ public class MemberDAOImpl extends BaseDAO implements MemberDAO{
 	private static final String MEMBER_INTSERT_SQL="insert into member values(seq_no.nextval,?,?,?,?)";
 	//중복확인
 	private static final String MEMBER_COUNT_BY_ID_SQL= "SELECT COUNT(*) AS cnt FROM member WHERE memberid = ?";
+	private static final String MEMBER_COUNT_BY_EMAIL_SQL= "SELECT COUNT(*) AS cnt FROM member WHERE EMAIL = ?";
 	//수정
 	private static final String MEMBER_UPDATE_PASSWORD_SQL= "update member set password = ? where memberno = ?";
 	private static final String MEMBER_UPDATE_NAME_SQL="update member set membername = ? where memberno = ?";
@@ -341,7 +342,7 @@ public class MemberDAOImpl extends BaseDAO implements MemberDAO{
 		
 		try {
 			connection = getConnection();
-			preparedStatement = connection.prepareStatement(MEMBER_COUNT_BY_ID_SQL);
+			preparedStatement = connection.prepareStatement(MEMBER_COUNT_BY_EMAIL_SQL);
 			preparedStatement.setString(1, email);
 			
 			resultSet = preparedStatement.executeQuery();

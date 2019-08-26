@@ -97,13 +97,13 @@ div strong{
 		<h4>비밀번호찾기</h4>
 		<form action="password_find" method="post" id="password_find">
 			<div class="form-group">
-				<input type="text" placeholder="아이디를 입력해주세요" name="memberid2"  id="memberid2"><br/>
+				아이디:&nbsp;<input type="text" placeholder="아이디를 입력해주세요" name="memberid2"  id="memberid2"><br/>
 			</div>
 			<div class="form-group">
-				<input type="text" placeholder="이름을 입력하세요" name="membername2" id="membername2" ><br/>
+				이름 :&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="이름을 입력하세요" name="membername2" id="membername2" ><br/>
 			</div>
 			<div class="form-group">
-				<input type="email" placeholder="이메일을 입력하세요" name="email2" id="email2"><br/>
+				이메일 :<input type="email" placeholder="이메일을 입력하세요" name="email2" id="email2"><br/>
 			</div>
 			<input type="submit" value="확인" id="passwordclick" class="btn btn-primary form-control">
 		</form>

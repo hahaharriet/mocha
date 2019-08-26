@@ -62,7 +62,15 @@
 		font-size:20px;
 		margin:20px;
 	}
-
+	#train{
+		height:200px;
+		width:1500px;
+		background-image: url("member/img/train.jpg");
+	}
+	tr{
+		margin:30px;
+		height:30px;
+	}
 </style>
 <script type="text/javascript">
 $(function(){
@@ -117,36 +125,53 @@ $(function(){
 	    <navs>
 	    	<span style="text-align:center;font-size:20px;"><p style="border-bottom:1px solid #999;"><strong>my page</strong></p></span>
 	        	<ul>
-	            	<li class="mm"><a href="mypage">회원 정보</a></li>
-	                <li class="mm"><a href="update">회원 수정</a></li>
+	            	<li class="mm"><a href="mypage.do">회원 정보</a></li>
+	                <li class="mm"><a href="update.do">회원 수정</a></li>
 	                <li class="mm"><a href="">link</a></li>
-	                <li class="mm"><a href="delete">회원 탈퇴</a></li>
+	                <li class="mm"><a href="delete.do">회원 탈퇴</a></li>
 	        	</ul>
 	    </navs>
 	        <section>
 	            <p id="text"><strong>회원수정</strong></p>
 	            <article>
-	               	아이디: <span>${members.memberid}</span><br><br>
-					<form action="update_password" method="post" id ="passwordClick">
-							<input type="hidden" name ="memberno"value="${members.memberno}">
-							
-							비밀번호 : <span><input type="password" name="password" id="password"><br><br></span>
-							비밀번호 확인: <span><input type="password" name="repassword"></span>
-							<input type="submit" value="수정" class="button"><br><br>
-					</form>
-					<form action="update_name" method="post">
-							<input type="hidden" name ="memberno"value="${members.memberno}">
-							이름 : <span><input type="text" name= "membername" value="${members.membername}"></span> 
-							<input type="submit" value="수정" class="button"><br><br>
-					</form>
-					<form action="update_email" method="post">
-						<input type="hidden" name ="memberno"value="${members.memberno}">
-						
-						이메일 : <span><input type="email" name="email" value="${members.email}"></span>
-						<input type="submit" value="수정" class="button">	<br><br>
-					</form>
+	            <table>
+	            	<tr>
+	            		<td>아이디:</td>
+	            		<td>${members.memberid}</td>
+	            	</tr>
+	            	<form action="update_password.do" method="post" id ="passwordClick">
+	            		<tr>
+		            		<input type="hidden" name ="memberno"value="${members.memberno}">
+		            		<td>비밀번호 :</td>
+		            		<td><input type="password" name="password" id="password"></td>
+		            		<td><input type="submit" value="수정" class="button"></td>
+	            		</tr>
+	            	
+		            	<tr>
+		            		<td>비밀번호 확인:</td>
+		            		<td><input type="password" name="repassword"></td>
+		            	</tr>
+	            	</form>
+	            	<form action="update_name.do" method="post">
+		            	<tr>
+		            		<input type="hidden" name ="memberno"value="${members.memberno}">
+		            		<td>이름 : </td>
+		            		<td><input type="text" name= "membername" value="${members.membername}"></td>
+		            		<td><input type="submit" value="수정" class="button"></td>
+		            	</tr>
+	            	</form>
+	            	<form action="update_email.do" method="post">
+		            	<tr>
+		            		<input type="hidden" name ="memberno"value="${members.memberno}">
+		            		<td>이메일 :</td>
+		            		<td><input type="email" name="email" value="${members.email}"></td>
+		            		<td><input type="submit" value="수정" class="button"></td>
+		            	</tr>
+	            	</form>
+	            </table>
 	            </article>
 	        </section>
 		</div>
+		<div id="train"></div>
 	</body>
 </html>
