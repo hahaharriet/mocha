@@ -41,6 +41,9 @@ font-size:25px;
 
 <div class="container">
 	<form action="orders_search" method="post">
+	<a href="logout">로그아웃</a>/
+			<a href="index.jsp">홈</a>
+			
 		<br />
 		<input type="text" placeholder="주문일자" name="fromdate" class="textbox"/>
 		<span>~</span>
