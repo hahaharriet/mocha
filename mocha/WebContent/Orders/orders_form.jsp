@@ -15,48 +15,7 @@
 
 </style>
 
-<style>
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit],input[type=button]:hover {
-  background-color: #45a049;
-}
-
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-</style>
-
-<style>
-
-	#button hover {
-  background-color: #555555;
-  color: white;
-}
-	
-
-</style>
 
 <script type="text/javascript">
 	$(function () {
@@ -65,26 +24,26 @@ div {
 			
 			rules:{
 				ordersmembername : "required",
-				address:"required"
+				seealso:"required",
+				pay:{
+					required :true,
+					maxlength : 1
+				}
 				
 			},
 			messages:{
 				ordersmembername : "주문자 성명을 입력하세요",
-				address:"주소를 입력하세요."	
+				seealso:"주소를 입력하세요."	,
+				pay:{
+					required :"결제수단을 선택해주세요",
+					maxlength:"결제수단은 {0}개만 선택해주세요"
+				}
 			}
 		});
 	});
 </script>
 
-<script type="text/javascript">
-	$(function () {
-		
-		 $('#payment').click(function () {
-			
-			alert("주문이 완료되었습니다.");
-		});
-	});
-</script>
+
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 
@@ -146,9 +105,19 @@ div {
     }
 </script>
 
+<script type="text/javascript">
+	$(function () {
+		
+		 $('#payment').click(function () {
+			
+			alert("주문 완료되었습니다.");
+		});
+	});
+</script>
+
 	</head>
 	<body>
-	<div>
+	
 		<form id="signupForm" action="orders_save?productno=${product.productno}" method="post">
 			<a href="Orders_list">주문내역 </a><br />
 			<input type="hidden"  name="memberno" value="${member.memberno}" />
@@ -166,16 +135,17 @@ div {
 			<input type="text" id="sample4_detailAddress" name="detailsaddress" placeholder="상세주소">
 			<input type="text" id="sample4_extraAddress" name="seealso" placeholder="참고항목"><br />
 			
-			결제 금액<input type="text" name="ordersprice"  value="${product.price}"/><br />
+			결제 금액<input type="text" name="ordersprice"  value="${product.price}" readonly="readonly"/><br />
 			
 		
-			결제수단<br /><input type ="checkbox" />신용카드
-			<input type ="checkbox" />계좌이체
-			<input type ="checkbox" />휴대폰<br /> 
-			<input type="submit" id="payment" value="결제하기"/>
+			결제수단 <br /> 
+			<input name="pay" type ="radio" />신용카드
+			<input name="pay" type ="radio" />계좌이체
+			<input name="pay" type ="radio" />휴대폰<br /> <label class="error" for="pay"></label>
+			<br /><input  type="submit" id="payment" value="결제하기"/>
 			
 		</form>
-		</div>
+		
 		
 	</body>
 </html>
