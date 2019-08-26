@@ -9,11 +9,12 @@
 	<body>
 		<h1>일반게시판(글작성)</h1>
 		
+		${member.memberno}
 	<form action="review_save" method="post">
 		
 		<input type="hidden" name = "review_memberid" value="${member.memberid}" ><br />
 		작성자<input type="text" name = "review_memberid" value="${member.memberid}" disabled="disabled"><br /><br />
-		<input type="text" name="productno" />
+		상품번호<input type="text" name="productno" value="${orders.productno}"/><br>
 	
 		
 		제목<input type="text" name ="reviewsubject" /><br /><br />

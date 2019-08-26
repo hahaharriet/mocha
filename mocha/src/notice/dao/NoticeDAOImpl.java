@@ -15,12 +15,9 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 	// 전체 목록
 	private static final String NOTICE_SELETE_ALL_SQL = "select * from notice";
 	// 상세보기
-	private static final String NOTICE_SELECTBY_NOTICENO_SQL = "select * from notice where noticeno=?";
-	// 상세보기
-			
+	private static final String NOTICE_SELECTBY_NOTICENO_SQL = "select * from notice where noticeno=?";				
 	// 페이징 셀렉//나중에 productno로 정렬해라 by productno
-	private static final String NOTICE_SELECT_ALL_PAGE_SQL = "SELECT * FROM (select ROWNUM RN, notices.* FROM (select * from notice order by noticeno desc) notices) WHERE RN BETWEEN ? AND ?";
-	
+	private static final String NOTICE_SELECT_ALL_PAGE_SQL = "SELECT * FROM (select ROWNUM RN, notices.* FROM (select * from notice order by noticeno desc) notices) WHERE RN BETWEEN ? AND ?";	
 	// 업데이트
 	private static final String NOTICE_UPDATE_SQL = "update notice set noticesubject=?,notice_date=?,noticecontent=? where noticeno=?";
 	// 삭제
@@ -123,7 +120,7 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 				notice = new Notice();
 				notice.setNoticeno(resultSet.getInt("noticeno"));
 				notice.setNoticesubject(resultSet.getString("noticesubject"));				
-				notice.setNotice_date(resultSet.getString("notice_date"));
+				notice.setNotice_date(resultSet.getString("notice_date").split("\\s")[0]);
 				notice.setNotice_memberid(resultSet.getString("notice_memberid"));
 				notice.setNoticecontent(resultSet.getString("noticecontent"));
 				notice.setVisited(resultSet.getInt("visited"));
@@ -165,7 +162,7 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 				notice.setNoticeno(resultSet.getInt("noticeno"));
 				notice.setNoticesubject(resultSet.getString("noticesubject"));
 				notice.setNoticecontent(resultSet.getString("noticecontent"));
-				notice.setNotice_date(resultSet.getString("notice_date").split("\\s")[0]);
+				notice.setNotice_date(resultSet.getString("notice_date"));
 				notice.setNotice_memberid(resultSet.getString("notice_memberid"));
 				notice.setVisited(resultSet.getInt("visited"));
 				
@@ -193,12 +190,13 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 			connection = getConnection();
 			preparedStatement = connection.prepareStatement(NOTICE_UPDATE_SQL);			
 			preparedStatement.setString(1, notice.getNoticesubject());
-			preparedStatement.setString(2, notice.getNotice_date());
+			preparedStatement.setString(2, notice.getNotice_date().split("\\s")[0]);
 			preparedStatement.setString(3, notice.getNoticecontent());
 			preparedStatement.setInt(4, notice.getNoticeno());
 
 			preparedStatement.executeQuery();
-
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -207,7 +205,6 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 	}
 
 	
-
 	@Override
 	public boolean delete(int noticeno) {
 		

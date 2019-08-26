@@ -17,15 +17,17 @@
 		<h4>상세보기</h4>
 		<a href="notice_list_sp">목록보기</a>
 	
-		<form action="notice_update" method="post">
-			<input type="hidden" name="notice" value="${notices.noticeno}">
-			작성자<input type="text" name="review_memberid" value="${review.review_memberid}" disabled="disabled"><br />
-			제목<input type="text"   name="eventsubject" value="${events.eventsubject}"/><br />			
-			이벤트기간<input type="date" name="start_date" value="${events.start_date}"/>~<input type="date" name="end_date" value="${events.end_date}" />
-			내용<input type="text"   name="eventcontent" value="${events.eventcontent}"/>
-			조회수<input type="text"   name="eventvisited" value="${events.eventvisited}" disabled="disabled"/><br />
+		<form action="notice_update" method="post">	
+		<input type="hidden" name="noticeno" value="${notices.noticeno}">		
+			작성자<input type="text" name="notice_memberid" value="${notices.notice_memberid}" disabled="disabled"><br />			
+			제목<input type="text"   name="noticesubject" value="${notices.noticesubject}"/><br />			
+			이벤트기간<input type="text" name="notice_date" value="${notices.notice_date}"/>
+			내용<input type="text"   name="noticecontent" value="${notices.noticecontent}"/>
+			
+			조회수<input type="text"   name="visited" value="${notices.visited}" disabled="disabled"/><br />
 			<input type="submit" value="수정">
+			
 		</form>
-		<a type="button" href="notice_delete?eventno=${notices.noticeno}">삭제</a><br />						
+		<a type="button" href="notice_delete?noticeno=${notices.noticeno}">삭제</a><br />						
 	</body>
 </html>

@@ -78,7 +78,7 @@ font-size:25px;
 					<td>${order.orderdate}</td>
 					<td> <a  id="cancel" href="orders_delete?orderid=${order.orderid}">주문취소</a>
 					<span>/</span><a
-					 class="btn btn-link"	href="">review</a></td>
+					 class="btn btn-link"	href="Lee">review</a></td>
 				</tr>
 				
 

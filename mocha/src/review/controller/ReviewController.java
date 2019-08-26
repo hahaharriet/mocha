@@ -12,8 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import member.dao.MemberDAO;
+import orders.dao.OrdersDAO;
+import orders.dao.OrdersDAOImpel;
+import orders.model.Orders;
 import page.PageManager;
 import page.PageSQL;
+import product.dao.ProductDAO;
+import product.dao.ProductDAOImpel;
+import product.model.Product;
 import review.dao.ReviewDAO;
 import review.dao.ReviewDAOImpl;
 import review.model.Review;
@@ -83,20 +90,34 @@ public class ReviewController extends HttpServlet {
 		} else if (action.equals("Lee")) {
 
 			ReviewDAO dao = new ReviewDAOImpl();
-			int productno = 1;
-			//Integer.parseInt(req.getParameter("productno"));
 			
+			
+			
+			int productno = Integer.parseInt(req.getParameter("productno"));
+			
+							
 			List<Review> lists = dao.selectByProductNo(productno);
 
-			req.setAttribute("latters", lists);
+			
 			RequestDispatcher rd = req.getRequestDispatcher("latter_req_list?reqPage=1");
 			rd.forward(req, resp);
 		} else if (action.equals("review_input")) {
+			
 			ReviewDAO dao = new ReviewDAOImpl();
-			int productno = 1;
+			OrdersDAO dao1 = new OrdersDAOImpel();
+			
+			/*int memberno = Integer.parseInt(req.getParameter("memberno"));
+			int productno = Integer.parseInt(req.getParameter("productno"));
+			*/
+			//List<Orders> orderslist = dao1.SelectAll(memberno, productno);
+			//req.setAttribute("productno", orderslist);
+			//req.setAttribute("memberno", orderslist);
+			int productno = 1;//Integer.parseInt(req.getParameter("productno")); 
+					/*Integer.parseInt(req.getParameter("productno"));*/
+				
 			List<Review> lists = dao.selectByProductNo(productno);
 			req.setAttribute("latters", lists);
-
+			
 			RequestDispatcher rd = req.getRequestDispatcher("/latter/proudct_insert.jsp");
 			rd.forward(req, resp);
 

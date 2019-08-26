@@ -4,7 +4,6 @@
 <!DOCTYPE html >
 <html>
 <head>
-<head>
 <meta charset="utf-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -14,86 +13,120 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<title>이벤트리스트</title>
+<title>후기리스트</title>
 
 <style type="text/css">
+h2{
+	margin:20px;
+}
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+.container{
+text-align: center;
+}
+.container1{
+text-align: left;
+}
+
 </style>
 </head>
 <body>
-	<div class="container">
 
-		<table class="table">
-			<thead>
-				<tr style="text-align:center">
-					<td>번호</td>
-					<td>제목</td>
-					<td>내용</td>
-					<td colspan="2">날짜</td>
-					
-					<td>작성자</td>
-					<td>조회</td>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="event" items="${events}">
-					<tr style="text-align:center">
+	<div class="container">
+		<div class="container1">
+		<h2><strong>EVENT 게시판</strong></h2>
+		</div>
+		<hr>
+		
+			<table class="table" style="margin-top:70px;">
+				 <thead class="thead-light">
+					<tr>
+						<th>번호</th>
+						<th>제목</th>		
+						<th>내용</th>
+						<th>날짜</th>
+						<th>작성자</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					<c:forEach var="event" items="${events}">
 						<td>${event.eventno}</td>
 						<td><a href="event_detail?eventno=${event.eventno}">${event.eventsubject}</td>
 						<td>${event.eventcontent}</td>
-						<td colspan="2">${event.start_date}<span>&#126;<span>${event.end_date}</td>
-						<td>관리자</td>
-						<td>${event.eventvisited}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
+						<td>${event.start_date}<span>&#126;<span>${event.end_date}</td>
+						<td>${member.membername}
+						<td>${event.eventvisited}</td>	
+						</tr>				
+					</c:forEach>
+					
+				</tbody>
+			</table>
+				<!-- 페이지 처리 부분 -->
+		<div class="pagination" style="position: relative; left:450px">
+			<c:if test="${pageGroupResult.beforePage}">
+				<a href="event_req_list?reqPage=${pageGroupResult.groupStartNumber-1}">&#60;before</a>
+			</c:if>
+			<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}"
+						end="${pageGroupResult.groupEndNumber}">
+				<c:choose>
+					<c:when test="${pageGroupResult.selectPageNumber==index}">
+						<span id="select"><a href="event_req_list?reqPage=${index}">${index}</a></span>
+					</c:when>
+					<c:otherwise>
+						<a href="event_req_list?reqPage=${index}">${index}</a>
+					</c:otherwise>
+					</c:choose>
+			</c:forEach>
+		
+			<c:if test="${pageGroupResult.afterPage}">
+				<a href="event_req_list?reqPage=${pageGroupResult.groupEndNumber+1}">▶</a>
+			</c:if>	
+		</div>
+	</div><br />
 	
-	<hr />
-	<h3>events List</h3>
-	<c:if test="${empty events}">	검색된 결과가 존재하지 않습니다.
-	</c:if>
-	<hr />
-	<li><a href="event_input"> ㅇ글쓰기로 이동</a></li>
-	<li><a href="event_list_sp">목록보기</a></li>
-	<c:if test="${empty events} "></c:if>
-	
-	<div style="width:80%;">
+	<div class="row" style="position: relative; left:400px">
 		<form action="event_search" method="post">
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text">이름을 넣으세요</span>
-				</div>
-				<input class="form-control" type="text" name="eventsubject" /> <input
-					class="form-control" type="submit" value="검색" />
+			<div class="input-group mb-2">					
+						<span class="input-group-text">이름을 넣으세요</span>				
+				<input class="form-control" type="text" name="name="eventsubject"/> 
+				 <button type="submit" class="btn btn-primary" style="float:center">Transfer cash</button>
 			</div>
-		</form>			
-	</div>	
+		</form>
+		</div>
+
+		<c:if test="${empty events}">
+			<hr />
+		검색된 결과가 존재하지 않습니다.
+		<hr />
+		</c:if>
+		<c:if test="${! empty events}">
+		
+	
+	
+	</c:if>
+	
 	<br />
-	
-	<!--페이징 처리  -->
-	<c:if test="${pageGroupResult.beforePage}">
-		<a
-			href="event_req_list?reqPage=${pageGroupResult.groupStartNumber-1}">
-			&#60;before</a>
-	</c:if>
-	<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}"
-		end="${pageGroupResult.groupEndNumber}">
-		<c:choose>
-			<c:when test="${pageGroupResult.selectPageNumber==index}">
-				<span id="select"><a href="event_req_list?reqPage=${index}">${index}</a></span>
-			</c:when>
-			<c:otherwise>
-				<a href="event_req_list?reqPage=${index}">${index}</a>
-			</c:otherwise>
+	before : ${pageGroupResult.beforePage}
+	<br /> after :${pageGroupResult.afterPage}
+	<br />
 
-		</c:choose>
-
-	</c:forEach>
-	<c:if test="${pageGroupResult.afterPage}">
-		<a href="event_req_list?reqPage=${pageGroupResult.groupEndNumber+1}">after&#62;</a>
+	<c:if test="${member.memberid eq 'adimn123'}">
+	<li><a href="event_input"> 글쓰기로 이동</a></li>
 	</c:if>
-	
 </body>
 </html>

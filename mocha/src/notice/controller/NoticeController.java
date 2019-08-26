@@ -120,15 +120,16 @@ public class NoticeController extends HttpServlet {
 			rd.forward(req, resp);
 
 		} else if (action.equals("notice_update")) {
-
-			Notice notice = new Notice();
+			
 			NoticeDAO dao = new NoticeDAOImpl();
-
+			Notice notice = new Notice();
+			
 			notice.setNoticeno(Integer.parseInt(req.getParameter("noticeno")));
 			notice.setNoticesubject(req.getParameter("noticesubject"));
 			notice.setNotice_date(req.getParameter("notice_date"));
 			notice.setNoticecontent(req.getParameter("noticecontent"));
-
+			
+			System.out.println("¼º°ø");
 			dao.update(notice);
 
 			RequestDispatcher rd = req.getRequestDispatcher("notice_req_list?reqPage=1");
