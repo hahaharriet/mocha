@@ -125,7 +125,7 @@ public class MemberController extends HttpServlet{
 			RequestDispatcher disptcher = req.getRequestDispatcher("/index.jsp");
 			disptcher.forward(req, resp);
 		}
-		else if(action.equals("update_name")) {
+		else if(action.equals("update_name.do")) {
 			MemberDAO dao = new MemberDAOImpl();
 			Member member = new Member();
 			
@@ -133,7 +133,7 @@ public class MemberController extends HttpServlet{
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
 			dao.updateName(member);
 			
-			RequestDispatcher disptcher = req.getRequestDispatcher("mypage"); 
+			RequestDispatcher disptcher = req.getRequestDispatcher("mypage.do"); 
 			disptcher.forward(req, resp);
 		}else if(action.equals("update_email.do")) {
 			MemberDAO dao = new MemberDAOImpl();
@@ -143,7 +143,7 @@ public class MemberController extends HttpServlet{
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
 			dao.updateEmail(member);
 			
-			RequestDispatcher disptcher = req.getRequestDispatcher("mypage"); 
+			RequestDispatcher disptcher = req.getRequestDispatcher("mypage.do"); 
 			disptcher.forward(req, resp);
 		}else if(action.equals("update_password.do")) {
 			MemberDAO dao = new MemberDAOImpl();
@@ -153,7 +153,7 @@ public class MemberController extends HttpServlet{
 			member.setMemberno(Integer.parseInt(req.getParameter("memberno")));
 			dao.updatePassword(member);
 			
-			RequestDispatcher disptcher = req.getRequestDispatcher("/member/mypageimpomation.jsp"); 
+			RequestDispatcher disptcher = req.getRequestDispatcher("mypage.do"); 
 			disptcher.forward(req, resp);
 		}else if (action.equals("member_delete.do")) {
 			MemberDAO dao = new MemberDAOImpl();
@@ -178,8 +178,9 @@ public class MemberController extends HttpServlet{
 				RequestDispatcher disptcher = req.getRequestDispatcher("/index.jsp"); 
 				disptcher.forward(req, resp);
 			}else {
-				RequestDispatcher disptcher = req.getRequestDispatcher("/member/mypagedelete.jsp"); 
+				RequestDispatcher disptcher = req.getRequestDispatcher("/delete.do"); 
 				disptcher.forward(req, resp);
+				System.out.println("½ÇÆÐ");
 			}
 		
 		}else if(action.equals("id_find")) {
