@@ -160,9 +160,9 @@ public class EventController extends HttpServlet {
 		} else if (action.equals("event_search")) {
 			
 			EventDAO dao = new EventDAOImpl();
-			String eventsubject = req.getParameter("eventsubject");
-			System.out.println(eventsubject);
-			List<Event> eventlist = dao.selectbyEventSubject("%" + eventsubject + "%");
+			String eventcontent = req.getParameter("eventcontent");
+			System.out.println(eventcontent);
+			List<Event> eventlist = dao.selectbyEventcontent("%" + eventcontent + "%");
 			System.out.println(eventlist);
 			req.setAttribute("events", eventlist);
 

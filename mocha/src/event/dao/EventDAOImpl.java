@@ -31,7 +31,7 @@ public class EventDAOImpl extends BaseDAO implements EventDAO {
 		//조회수
 		private static final String EVENT_UPDATE_VISITED_SQL="update event set eventvisited = eventvisited+1 where eventno=?";
 		//상세 검색
-		private static final String EVENT_SELECTBY_EVENTSUBJECT_SQL = "SELECT * FROM event WHERE eventsubject like ? ORDER BY start_date";
+		private static final String EVENT_SELECTBY_EVENTSUBJECT_SQL = "SELECT * FROM event WHERE eventcontent like ? ORDER BY start_date";
 	
 		@Override
 	public List<Event> selectAll() {
@@ -266,7 +266,7 @@ public class EventDAOImpl extends BaseDAO implements EventDAO {
 	}
 
 	@Override
-	public List<Event> selectbyEventSubject(String eventsubject) {
+	public List<Event> selectbyEventcontent(String eventcontent) {
 		List<Event> evnetlist = new ArrayList<Event>();
 		Event event = null;
 		Connection connection = null;
@@ -276,7 +276,7 @@ public class EventDAOImpl extends BaseDAO implements EventDAO {
 		try {
 			connection = getConnection();
 			preparedStatement = connection.prepareStatement(EVENT_SELECTBY_EVENTSUBJECT_SQL);
-			preparedStatement.setString(1, eventsubject);
+			preparedStatement.setString(1, eventcontent);
 
 			resultSet = preparedStatement.executeQuery();
 

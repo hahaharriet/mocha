@@ -24,5 +24,5 @@ public interface EventDAO {
 	//조회수 처리
 	void updateVisited(int no);
 	//상세 검색처리
-	List<Event> selectbyEventSubject(String eventsubject);
+	List<Event> selectbyEventcontent(String eventsubject);
 }

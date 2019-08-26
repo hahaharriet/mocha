@@ -137,6 +137,7 @@ $(function(){
 	
 	
 		<div class="container">
+		<c:if test="${member.memberid eq 'adimn123'}">
 			<form action="event_update" method="post" id="signupForm1">
 				<table class="table table-bordered table-hover" style="text-align:center;">											
 							<input type="hidden" name="eventno" value="${events.eventno}">											
@@ -146,7 +147,7 @@ $(function(){
 						</tr>
 						
 						<tr>
-							<td style="text-align:left;"><strong>writer&nbsp;&nbsp;</strong><input type="text" name="review_memberid"  size=10 value="${member.membername}" disabled="disabled"><br /></td>
+							<td style="text-align:left;"><strong>writer&nbsp;&nbsp;</strong><input type="text" name="review_memberid"  size=10 placeholder="관리자" disabled="disabled"><br /></td>
 						</tr>									
 						<tr>
 							<td style="text-align:left;">
@@ -156,7 +157,7 @@ $(function(){
 						</tr>				
 							<tr>							
 								<td ><p style="text-align:left;"><strong>content:&nbsp;&nbsp;</strong></p><div class="form-group" style="width:100%;">				
-									<textarea class="form-control" rows="12" id="eventcontent" name="eventcontent" value="${events.eventcontent}"></textarea>		
+									<textarea class="form-control" rows="12" id="eventcontent" name="eventcontent" >${events.eventcontent}</textarea>		
 								</div>
 								</td>
 							</tr>				
@@ -168,9 +169,41 @@ $(function(){
 					</tbody>
 				</table>
 			</form>	
+			</c:if>
 		</div>
 	
 	</div>	
-	  				
+	  	<div class="container">
+		<c:if test="${member.memberid != 'adimn123'}">
+			<form>
+				<table class="table table-bordered table-hover" style="text-align:center;">											
+							<input type="hidden" name="eventno" value="${events.eventno}">											
+					<tbody>				
+						<tr>	  						
+							<td style="text-align:left;"><strong>title:&nbsp;&nbsp;</strong><input id="eventsubject" type="text"  size=100 name="eventsubject" id="eventsubject" value="${events.eventsubject}"/><br /></td>											
+						</tr>
+						
+						<tr>
+							<td style="text-align:left;"><strong>writer : 관리자&nbsp;&nbsp;</strong><br /></td>
+						</tr>									
+						<tr>
+							<td style="text-align:left;">
+							<strong style="font-size:15px;">이벤트기간&nbsp;&nbsp;</strong>
+							<input size=10 id="date1" type="date" name="start_date" value="${events.start_date}"/>
+							~<input size=10 type="date" name="end_date" value="${events.end_date}" id="date2"/><br /></td>
+						</tr>				
+							<tr>							
+								<td ><p style="text-align:left;"><strong>content:&nbsp;&nbsp;</strong></p><div class="form-group" style="width:100%;">				
+									<textarea class="form-control" rows="12" id="eventcontent" name="eventcontent" disabled="disabled">${events.eventcontent}</textarea>		
+								</div>
+								</td>
+							</tr>				
+					<%-- 조회수<input type="text"   name="eventvisited" value="${events.eventvisited}" disabled="disabled"/><br /> --%>
+					
+					</tbody>
+				</table>
+			</form>	
+			</c:if>
+		</div>			
 </body>
 </html>

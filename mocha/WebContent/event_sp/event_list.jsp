@@ -69,7 +69,7 @@ text-align: left;
 						<td><a href="event_detail?eventno=${event.eventno}">${event.eventsubject}</td>
 						<td>${event.eventcontent}</td>
 						<td>${event.start_date}<span>&#126;<span>${event.end_date}</td>
-						<td>${member.membername}
+						<td>관리자</td>
 						<td>${event.eventvisited}</td>	
 						</tr>				
 					</c:forEach>
@@ -99,26 +99,22 @@ text-align: left;
 		</div>
 	</div><br />
 	
-	<div class="row" style="position: relative; left:400px">
-		<form action="event_search" method="post">
-			<div class="input-group mb-2">					
-						<span class="input-group-text">이름을 넣으세요</span>				
-				<input class="form-control" type="text" name="name="eventsubject"/> 
-				 <button type="submit" class="btn btn-primary" style="float:center">Transfer cash</button>
-			</div>
-		</form>
+		<div class="row" style="position: relative; left:400px">
+			<form action="event_search" method="post">
+				<div class="input-group mb-2">					
+							<span class="input-group-text">검색하실 내용을 입력하세요</span>				
+					<input class="form-control" type="text" name="eventcontent"/> 
+					 <button type="submit" class="btn btn-primary" style="float:center">search</button>
+				</div>
+			</form>
 		</div>
-
-		<c:if test="${empty events}">
-			<hr />
-		검색된 결과가 존재하지 않습니다.
-		<hr />
-		</c:if>
-		<c:if test="${! empty events}">
-		
-	
-	
-	</c:if>
+			<c:if test="${empty events}">
+					<hr />
+			검색된 결과가 존재하지 않습니다.
+					<hr />
+			</c:if>
+			<c:if test="${! empty events}">				
+			</c:if>
 	
 	<br />
 	before : ${pageGroupResult.beforePage}
