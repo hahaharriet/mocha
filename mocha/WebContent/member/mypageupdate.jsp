@@ -127,7 +127,7 @@ $(function(){
 	        	<ul>
 	            	<li class="mm"><a href="mypage.do">회원 정보</a></li>
 	                <li class="mm"><a href="update.do">회원 수정</a></li>
-	                <li class="mm"><a href="">link</a></li>
+	                <li class="mm"><a href="Orders_list ">주문 내역</a></li>
 	                <li class="mm"><a href="delete.do">회원 탈퇴</a></li>
 	        	</ul>
 	    </navs>
