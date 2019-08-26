@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
 	<form class="form-inline" action="product_search_m" method="post">
 		이름을 넣으세요 <input type="text" name="productname" style="align: center" /> <input
 			type="submit" value="검색" />
@@ -41,25 +42,25 @@
 			
 		</table>
 	<c:if test="${pageGroupResult.beforePage}">
-	<a href="product_req_manager_list?reqPage=${pageGroupResult.groupStartNumber-1}">
+	<a href="product_req_manager_list.do?reqPage=${pageGroupResult.groupStartNumber-1}">
 	&#60;before</a>
 	</c:if>
 	<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
 		<c:choose>
 			<c:when test="${pageGroupResult.selectPageNumber==index}">
-				<span id="select"><a href="product_req_manager_list?reqPage=${index}">${index}</a></span>		
+				<span id="select"><a href="product_req_manager_list.do?reqPage=${index}">${index}</a></span>		
 			</c:when>
 			<c:otherwise>
-				<a href="product_req_manager_list?reqPage=${index}">${index}</a>
+				<a href="product_req_manager_list.do?reqPage=${index}">${index}</a>
 			</c:otherwise>
 		
 		</c:choose>
 		
 	</c:forEach>
 	<c:if test="${pageGroupResult.afterPage}">
-	<a href="product_req_manager_list?reqPage=${pageGroupResult.groupEndNumber+1}">after&#62;</a>
+	<a href="product_req_manager_list.do?reqPage=${pageGroupResult.groupEndNumber+1}">after&#62;</a>
 	</c:if>		
 		 <a href="product_input_m">상품등록</a><br/>
-		 
+
 </body>
 </html>

@@ -113,9 +113,12 @@
 		<li><a href="latter_req_list?reqPage=1">후기 게시판</a></li>
 		<li><a href="product_list_manager_m">상품 이미지</a></li>
 		<li><a href="event_req_list?reqPage=1">이벤트 게시판</a></li>
-		
-	
-		
+		<br/>
+		<br/>
+		<br/>
+		<c:if test="${member.memberid eq 'admin'}">
+		<li><a href="product_req_manager_list.do?reqPage=1">관리자 게시판</a></li>
+		</c:if>
 	</ul>
 
 </body>
