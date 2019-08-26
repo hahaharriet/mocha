@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
@@ -68,13 +66,21 @@
 		background-image: url("member/img/train.jpg");
 	}
 	tr{
-		margin:30px;
 		height:30px;
+	}
+	td{
+		width:150px;
+	}
+	.error{
+		color:red;
+	}
+	.min{
+		width:0;
 	}
 </style>
 <script type="text/javascript">
 $(function(){
-	$("#passwordClick").validate({
+	$("#passwordcheck").validate({
 		debug : false,
 		rules:{
 			password :{
@@ -88,7 +94,6 @@ $(function(){
 			}
 		},
 		messages : {
-			
 			password : {
 				required  : "비밀번호를 입력하세요",
 				minlength : "비밀번호는 최소{0}글자입니다",
@@ -97,6 +102,38 @@ $(function(){
 			repassword :{
 				required :"비밀번호를 입력하세요",
 				equalTo :"비밀번호가 확인이 잘못되었습니다."
+			}
+		}
+	});
+});
+$(function(){
+	$("#updatename").validate({
+		debug : false,
+		rules:{
+			membername :{
+				required  : true
+			}
+		},
+		messages : {
+			membername : {
+				required  : "이름을 입력하세요",
+			}
+		}
+	});
+});
+$(function(){
+	$("#emailcheck").validate({
+		debug : false,
+		rules:{
+			email : {
+				required :true,
+				email : true
+			}
+		},
+		messages : {
+			email : {
+				required :"이메일를 입력해 주세요",
+				email : "이메일 형식이 맞지 않습니다."
 			}
 		}
 	});
@@ -134,41 +171,52 @@ $(function(){
 	        <section>
 	            <p id="text"><strong>회원수정</strong></p>
 	            <article>
-	            <table>
+	           	<table>
 	            	<tr>
-	            		<td>아이디:</td>
+	            		<td style="width:70px">아이디:</td>
 	            		<td>${members.memberid}</td>
 	            	</tr>
-	            	<form action="update_password.do" method="post" id ="passwordClick">
+	            </table>
+	            	<form action="update_password.do" method="post" id ="passwordcheck">
+	            		<input type="hidden" name ="memberno"value="${members.memberno}">
+	            	<table>
 	            		<tr>
-		            		<input type="hidden" name ="memberno"value="${members.memberno}">
+		            		
 		            		<td>비밀번호 :</td>
 		            		<td><input type="password" name="password" id="password"></td>
-		            		<td><input type="submit" value="수정" class="button"></td>
+		            		<td class="min"><input type="submit" value="수정" class="button"></td>
+		            		<td><label class="error" for="password"></label></td>
 	            		</tr>
-	            	
 		            	<tr>
 		            		<td>비밀번호 확인:</td>
-		            		<td><input type="password" name="repassword"></td>
+		            		<td><input type="password" name="repassword" id="repassword"></td>
+		            		<td class="min"></td>
+		            		<td><label class="error" for="repassword"></label></td>
 		            	</tr>
+		            </table>
 	            	</form>
-	            	<form action="update_name.do" method="post">
+	            	<form action="update_name.do" method="post" id="updatename">
+	            	<input type="hidden" name ="memberno"value="${members.memberno}">
+		            <table>	
 		            	<tr>
-		            		<input type="hidden" name ="memberno"value="${members.memberno}">
 		            		<td>이름 : </td>
-		            		<td><input type="text" name= "membername" value="${members.membername}"></td>
-		            		<td><input type="submit" value="수정" class="button"></td>
+		            		<td><input type="text" id="membername" name= "membername" value="${members.membername}"></td>
+		            		<td class="min"><input type="submit" value="수정" class="button"></td>
+		            		<td><label class="error" for="membername"></label></td>
 		            	</tr>
+		            </table>
 	            	</form>
-	            	<form action="update_email.do" method="post">
-		            	<tr>
-		            		<input type="hidden" name ="memberno"value="${members.memberno}">
-		            		<td>이메일 :</td>
-		            		<td><input type="email" name="email" value="${members.email}"></td>
-		            		<td><input type="submit" value="수정" class="button"></td>
-		            	</tr>
+	            	<form action="update_email.do" method="post" id="emailcheck">
+	            	<input type="hidden" name ="memberno" value="${members.memberno}">
+		            	<table>
+			            	<tr>
+			            		<td>이메일 :</td>
+			            		<td><input type="email" name="email" value="${members.email}"></td>
+			            		<td class="min"><input type="submit" value="수정" class="button"></td>
+			            		<td><label class="error" for="email"></label></td>
+			            	</tr>
+	            		</table>
 	            	</form>
-	            </table>
 	            </article>
 	        </section>
 		</div>

@@ -4,13 +4,59 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.error{
+		color:red;
+	}
+</style>
 <script type="text/javascript">
+$(function(){
+	$("#form").validate({
+		debug : false,
+		rules:{
+			memberid :{
+				required :true,
+				minlength : 7 
+			},
+			password :{
+				required  : true,
+				minlength : 4,
+				maxlength : 8
+			},
+			membername :"required",
+			
+			email : {
+				required :true,
+				email : true
+			}
+		},
+		messages : {
+			memberid :{
+				required : "아이디를 입력하세요.",
+				minlength : "아이디는 최소{0}글자입니다"
+			},
+			password : {
+				required  : "비밀번호를 입력하세요",
+				minlength : "비밀번호는 최소{0}글자입니다",
+				maxlength : "비밀번호는 최대{0}글자입니다"
+			},
+			
+			membername : {
+				required:"이름을 입력해주세요"
+			},
+			
+			email : {
+				required :"이메일를 입력해 주세요",
+				email : "이메일 형식이 맞지 않습니다."
+			}
+			
+		}
+	});
+});
 	$(function(){
 		$("#delete").click(function(){
 			var con= confirm("탈퇴하시겠습니까?");
@@ -124,24 +170,24 @@
 	        <section>
 	            <p id="text"><strong>회원탈퇴</strong></p>
 	            <article>
-	               <form action="member_delete.do" method="post" if="form">
+	               <form action="member_delete.do" method="post" id="form">
+	               <input type="hidden" name ="memberno"value="${member.memberno}">
 	               	<table>
-	               		<input type="hidden" name ="memberno"value="${member.memberno}">
 	               		<tr>
 	               			<td>아이디 :</td>
-	               			<td><input type="text" name="memberid"></td>
+	               			<td><input type="text" name="memberid" id="memberid"></td>
 	               		</tr>
 	               		<tr>
 	               			<td>비밀번호 :</td>
-	               			<td><input type="password" name="password"></td>
+	               			<td><input type="password" name="password" id="password"></td>
 	               		</tr>
 	               		<tr>
 	               			<td>이름 :</td>
-	               			<td><input type="text" name="membername"></td>
+	               			<td><input type="text" name="membername" id="membername"></td>
 	               		</tr>
 	               		<tr>
 	               			<td>이메일 : </td>
-	               			<td><input type="email" name ="email"></td>
+	               			<td><input type="email" name ="email" id="email"></td>
 	               		</tr>
 	               	</table>
 	               	<hr>
