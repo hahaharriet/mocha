@@ -117,9 +117,6 @@ text-align: left;
 			</c:if>
 	
 	<br />
-	before : ${pageGroupResult.beforePage}
-	<br /> after :${pageGroupResult.afterPage}
-	<br />
 
 	<c:if test="${member.memberid eq 'admin'}">
 	<li><a href="event_input"> 글쓰기로 이동</a></li>
