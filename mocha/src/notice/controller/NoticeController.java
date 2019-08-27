@@ -156,10 +156,8 @@ public class NoticeController extends HttpServlet {
 		} else if (action.equals("notice_search")) {
 
 			NoticeDAO dao = new NoticeDAOImpl();
-			String noticesubject = req.getParameter("noticesubject");
-			System.out.println(noticesubject);
-			List<Notice> noticelist = dao.selectbyNoticeSubject("%" + noticesubject + "%");
-			System.out.println(noticelist);
+			String noticecontent = req.getParameter("noticecontent");			
+			List<Notice> noticelist = dao.selectbyNoticeContent("%" + noticecontent + "%");			
 			req.setAttribute("notices", noticelist);
 
 			RequestDispatcher rd = req.getRequestDispatcher("notice_req_list?reqPage=1");

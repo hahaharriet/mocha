@@ -9,7 +9,6 @@
 	<body>
 		<h1>일반게시판(글작성)</h1>
 		
-		${member.memberno}
 	<form action="review_save" method="post">
 		
 		<input type="hidden" name = "review_memberid" value="${member.memberid}" ><br />
@@ -23,7 +22,7 @@
 		<input type="submit" value="등록" />				
 	</form>
 		
-		<li><a href="Lee">리스트보기</a></li>
+		<li><a href="latter_req_list?reqPage=1">리스트보기</a></li>
 		
 	</body>
 </html>

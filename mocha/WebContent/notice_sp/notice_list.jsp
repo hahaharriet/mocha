@@ -42,7 +42,7 @@
 						<td><a href="notice_detail?noticeno=${notice.noticeno}">${notice.noticesubject}</td>
 						<td>${notice.noticecontent}</td>
 						<td colspan="2">${notice.notice_date}</td>
-						<td>${notice.notice_memberid}</td>						
+						<td>관리자</td>						
 						<td>${notice.visited}</td>
 					</tr>
 				</c:forEach>
@@ -51,12 +51,11 @@
 	</div>
 	
 	<hr />
-	<h3>events List</h3>
+	<h3>Notice List</h3>
 	<c:if test="${empty notices}">	검색된 결과가 존재하지 않습니다.
 	</c:if>
 	<hr />
-	<li><a href="notice_input"> ㅇ글쓰기로 이동</a></li>
-	<li><a href="notice_list_sp">목록보기</a></li>
+	<li><a href="notice_input"> ㅇ글쓰기로 이동</a></li>	
 	<c:if test="${empty notices} "></c:if>
 	
 	<div style="width:80%;">
@@ -65,7 +64,7 @@
 				<div class="input-group-prepend">
 					<span class="input-group-text">이름을 넣으세요</span>
 				</div>
-				<input class="form-control" type="text" name="noticesubject" /> <input
+				<input class="form-control" type="text" name="noticecontent" /> <input
 					class="form-control" type="submit" value="검색" />
 			</div>
 		</form>			

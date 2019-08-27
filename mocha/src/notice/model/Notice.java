@@ -6,6 +6,7 @@ public class Notice {
 	private String noticecontent;
 	private String notice_date;		
 	private String notice_memberid;
+	
 	private int visited;
 	
 	public int getNoticeno() {

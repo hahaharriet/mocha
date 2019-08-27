@@ -73,7 +73,7 @@
       <li><a href="index.jsp">HOME</a></li>
       <li><a href="#">GOODS</a></li>
       <li><a href="event_req_list?reqPage=1">EVENT</a></li>
-      <li><a href="#">NOTICE</a></li>
+      <li><a href="notice_req_list?reqPage=1">NOTICE</a></li>
       <li><a href="product_req_list?reqPage=1">req리스트</a></li>
     </ul>
     <c:choose>
@@ -106,13 +106,12 @@
 </nav>
 
 	<ul>
-		<li><a href="ybbsInsert.jsp">글쓰기</a>
 		
-		<li><a href="review_list">후기 리스트</a></li>
-		<li><a href="notice_list_sp">공지 리스트</a></li>
+		
+		<li><a href="review_list">후기 리스트</a></li>		
 		<li><a href="latter_req_list?reqPage=1">후기 게시판</a></li>
-		<li><a href="product_list_manager_m">상품 이미지</a></li>
-		<li><a href="event_req_list?reqPage=1">이벤트 게시판</a></li>
+		
+		
 		<br/>
 		<br/>
 		<br/>

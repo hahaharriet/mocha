@@ -25,5 +25,5 @@ public interface NoticeDAO {
 	//조회수 처리
 	void updateVisited(int no);
 	//상세 검색처리
-	List<Notice> selectbyNoticeSubject(String noticesubject);
+	List<Notice> selectbyNoticeContent(String noticecontent);
 }

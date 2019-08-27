@@ -105,10 +105,27 @@ text-align: left;
 				</thead>
 				<tbody>
 					<c:forEach var="latter" items="${latters}">
+							${latter.productno}
 						<tr>
 							<td>${latter.reviewno}</td>
 							<td><a href="review_detail?reviewno=${latter.reviewno}">${latter.reviewsubject}</td>
-							<td>${latter.rate}</td>
+							<td>
+							<c:if test = "${latter.rate eq 1 }">
+								<img src = "img/one.jpg" width = "70px" height = "25px">
+							</c:if>
+							<c:if test = "${latter.rate eq 2 }">
+								<img src = "img/two.png" width = "70px" height = "25px">
+							</c:if>
+							<c:if test = "${latter.rate eq 3 }">
+								<img src = "img/three.png" width = "70px" height = "25px">
+							</c:if>
+							<c:if test = "${latter.rate eq 4 }">
+								<img src = "img/four.png" width = "70px" height = "25px">
+							</c:if>
+							<c:if test = "${latter.rate eq 5 }">
+								<img src = "img/five.png" width = "70px" height = "25px">
+							</c:if>
+							</td>
 							<td>${latter.content}</td>
 							<td>${latter.review_memberid}</td>
 							<td>${latter.review_date}</td>

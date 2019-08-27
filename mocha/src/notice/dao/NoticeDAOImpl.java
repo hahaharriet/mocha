@@ -11,7 +11,7 @@ import notice.model.Notice;
 
 public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 	// 글쓰기
-	private static final String NOTICE_INSERT_SQL = "insert into notice values(seq_notice.nextval,?,?,?,?,0)";
+	private static final String NOTICE_INSERT_SQL = "insert into notice values(seq_notice.nextval,?,?,sysdate,?,0)";
 	// 전체 목록
 	private static final String NOTICE_SELETE_ALL_SQL = "select * from notice";
 	// 상세보기
@@ -25,7 +25,7 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 	//조회수
 	private static final String NOTICE_UPDATE_VISITED_SQL="update notice set visited = visited+1 where noticeno=?";
 	//상세 검색
-	private static final String NOTICE_SELECTBY_NOTICESUBJECT_SQL = "SELECT * FROM notice WHERE noticesubject like ? ORDER BY notice_date";
+	private static final String NOTICE_SELECTBY_NOTICECONTENT_SQL = "SELECT * FROM notice WHERE noticecontent like ? ORDER BY notice_date";
 		
 	@Override
 	public List<Notice> selectAll() {
@@ -79,9 +79,8 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 			preparedStatement = connection.prepareStatement(NOTICE_INSERT_SQL);
 
 			preparedStatement.setString(1, notice.getNoticesubject());
-			preparedStatement.setString(2, notice.getNoticecontent());
-			preparedStatement.setString(3, notice.getNotice_date());
-			preparedStatement.setString(4, notice.getNotice_memberid());
+			preparedStatement.setString(2, notice.getNoticecontent());			
+			preparedStatement.setString(3, notice.getNotice_memberid());
 
 			int rowCount = preparedStatement.executeUpdate();
 
@@ -259,7 +258,7 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 	}
 	
 	@Override
-	public List<Notice> selectbyNoticeSubject(String noticesubject) {
+	public List<Notice> selectbyNoticeContent(String noticecontent) {
 		
 		List<Notice> noticelist = new ArrayList<Notice>();
 		Notice notice = null;
@@ -269,8 +268,8 @@ public class NoticeDAOImpl extends BaseDAO implements NoticeDAO {
 
 		try {
 			connection = getConnection();
-			preparedStatement = connection.prepareStatement(NOTICE_SELECTBY_NOTICESUBJECT_SQL);
-			preparedStatement.setString(1, noticesubject);
+			preparedStatement = connection.prepareStatement(NOTICE_SELECTBY_NOTICECONTENT_SQL);
+			preparedStatement.setString(1, noticecontent);
 
 			resultSet = preparedStatement.executeQuery();
 

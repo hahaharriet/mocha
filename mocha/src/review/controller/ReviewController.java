@@ -69,7 +69,7 @@ public class ReviewController extends HttpServlet {
 			req.setAttribute("reviews", reviewlist);
 
 			/*
-			 * HttpSession session= req.getSession(); //브라우저 닫을때가지 생존
+			 * HttpSession session= req.getSession(); //釉뚮씪�슦�� �떕�쓣�븣媛�吏� �깮議�
 			 * session.setAttribute("latters", reviewlist);
 			 */
 
@@ -94,7 +94,6 @@ public class ReviewController extends HttpServlet {
 			int prodNum = Integer.parseInt(req.getParameter("productno"));
 			   ProductDAOImpel odo=new ProductDAOImpel();
 			   Product p = odo.selectByproductno(prodNum);
-			   
 			   req.setAttribute("product", p);
 				
 			List<Review> lists = dao.selectByProductNo(prodNum);
@@ -115,16 +114,13 @@ public class ReviewController extends HttpServlet {
 			review.setProductno(Integer.parseInt(req.getParameter("productno")));
 			
 			ReviewDAO dao = new ReviewDAOImpl();
-			boolean result = dao.insert(review);
+			dao.insert(review);
+			int prodNum = Integer.parseInt(req.getParameter("productno"));
+			ReviewDAO dao1 = new ReviewDAOImpl();
+			List<Review> lists = dao1.selectByProductNo(prodNum);
+			req.setAttribute("latters", lists);
 			
-			System.out.println(review);
-			
-			System.out.println(result);
-			//resp.sendRedirect("latter_req_list?reqPage=1");
 			resp.sendRedirect("./latter_req_list?reqPage=1");
-			//RequestDispatcher rd = req.getRequestDispatcher("latter_req_list?reqPage=1");
-			//rd.forward(req, resp);
-
 		} else if (action.equals("latter_req_list")) {
 
 			int requestPage = Integer.parseInt(req.getParameter("reqPage"));
@@ -153,7 +149,7 @@ public class ReviewController extends HttpServlet {
 
 			dao.updateVisited(reviewno);
 
-			HttpSession session = req.getSession(); // 브라우저 닫을때가지 생존
+			HttpSession session = req.getSession(); // 
 			session.setAttribute("review", review);
 
 			RequestDispatcher rd = req.getRequestDispatcher("/latter/product_detail.jsp");

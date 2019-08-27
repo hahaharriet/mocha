@@ -18,16 +18,25 @@
 		border : 1px dashed red;
 	}
 .center{
-	 margin: auto;
-  	width: 60%;
-  
-  	padding: 10px;
+ margin: auto;
+ width: 100%;  
+ padding: 10px;
 }
-	#date1,#date2{
-		text-align:center;
-	}
+#date1,#date2{
+	text-align:center;
+}
 
-
+.a{
+	float:right;
+}
+.container1{
+	margin: auto;
+  	width: 50%;
+}
+.container2{
+	margin: auto;
+  	width: 50%;
+}
 </style>
 <script type="text/javascript">
 
@@ -131,17 +140,19 @@ $(function(){
 	<body>
 	<div class="center">
 		<h3>EVENT</h3>
+		
 <hr><!-- 선긋기 -->
 
-	<a href="event_list_sp">목록보기</a>
 	
 	
+	
+	<div class="container1">
 		<div class="container">
-		<c:if test="${member.memberid eq 'admin'}">
-			<form action="event_update" method="post" id="signupForm1">
-				<table class="table table-bordered table-hover" style="text-align:center;">											
+			<c:if test="${member.memberid eq 'admin'}">
+				<form action="event_update" method="post" id="signupForm1">
+					<table class="table table-bordered table-hover" style="text-align:center;">											
 							<input type="hidden" name="eventno" value="${events.eventno}">											
-					<tbody>				
+						<tbody>				
 						<tr>	  						
 							<td style="text-align:left;"><strong>title:&nbsp;&nbsp;</strong><input id="eventsubject" type="text"  size=100 name="eventsubject" id="eventsubject" value="${events.eventsubject}"/><br /></td>											
 						</tr>
@@ -171,12 +182,13 @@ $(function(){
 			</form>	
 			</c:if>
 		</div>
-	
 	</div>	
-	  	<div class="container">
-		<c:if test="${member.memberid != 'admin'}">
-			<form>
-				<table class="table table-bordered table-hover" style="text-align:center;">											
+		</div>	
+		<div class="container2">
+	  		<div class="container">
+				<c:if test="${member.memberid != 'admin'}">
+				<form>
+					<table class="table table-bordered table-hover" style="text-align:center;">											
 							<input type="hidden" name="eventno" value="${events.eventno}">											
 					<tbody>				
 						<tr>	  						
@@ -200,10 +212,13 @@ $(function(){
 							</tr>				
 					<%-- 조회수<input type="text"   name="eventvisited" value="${events.eventvisited}" disabled="disabled"/><br /> --%>
 					
-					</tbody>
-				</table>
-			</form>	
+						</tbody>
+					</table>
+				</form>	
 			</c:if>
-		</div>			
+		</div>		
+			<div id="a"><a href="event_req_list?reqPage=1"><button style = 'float:right' class="btn btn-primary">목록으로 돌아가기</button></a></div>
+				</div>	
+		
 </body>
 </html>
