@@ -141,11 +141,7 @@ $(function(){
 	<div class="center">
 		<h3>EVENT</h3>
 		
-<hr><!-- 선긋기 -->
-
-	
-	
-	
+<hr><!-- 선긋기 -->	
 	<div class="container1">
 		<div class="container">
 			<c:if test="${member.memberid eq 'admin'}">
@@ -154,7 +150,9 @@ $(function(){
 							<input type="hidden" name="eventno" value="${events.eventno}">											
 						<tbody>				
 						<tr>	  						
-							<td style="text-align:left;"><strong>title:&nbsp;&nbsp;</strong><input id="eventsubject" type="text"  size=100 name="eventsubject" id="eventsubject" value="${events.eventsubject}"/><br /></td>											
+							<td style="text-align:left;">
+							<strong>title:&nbsp;&nbsp;</strong>
+							<input id="eventsubject" type="text"  size=100 name="eventsubject" id="eventsubject" value="${events.eventsubject}"/><br /></td>											
 						</tr>
 						
 						<tr>
@@ -216,9 +214,11 @@ $(function(){
 					</table>
 				</form>	
 			</c:if>
-		</div>		
+		</div>
+		</div>	
+					
 			<div id="a"><a href="event_req_list?reqPage=1"><button style = 'float:right' class="btn btn-primary">목록으로 돌아가기</button></a></div>
-				</div>	
+				
 		
 </body>
 </html>

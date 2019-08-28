@@ -19,9 +19,14 @@ import notice.dao.NoticeDAOImpl;
 import notice.model.Notice;
 import page.PageManager;
 import page.PageSQL;
+import product.dao.ProductDAOImpel;
+import product.model.Product;
+import review.dao.ReviewDAOImpl;
+import review.model.Review;
 
 @WebServlet(name = "NoticeController", urlPatterns = { "/notice_list_sp", "/notice_input", "/notice_save",
-		"/notice_req_list","/notice_detail","/notice_update","/notice_delete","/notice_search" })
+		"/notice_req_list","/notice_detail","/notice_update","/notice_delete","/notice_search",
+		"/print_productList","/TestP_detail","/comment_link"})
 public class NoticeController extends HttpServlet {
 
 	@Override
@@ -164,5 +169,40 @@ public class NoticeController extends HttpServlet {
 			rd.forward(req, resp);
 
 		}
+		else if (action.equals("print_productList")) {
+
+			ProductDAOImpel dao = new ProductDAOImpel();
+			
+			List<Product> lists = dao.selectAll();
+			
+			req.setAttribute("lists", lists);
+			
+			RequestDispatcher rd = req.getRequestDispatcher("notice_sp/TestPage.jsp");
+			rd.forward(req, resp);
+
+		}
+		else if (action.equals("TestP_detail")) {
+			int Num = Integer.parseInt(req.getParameter("pruductNo"));
+			
+			req.setAttribute("procNum", Num);
+			RequestDispatcher rd = req.getRequestDispatcher("notice_sp/TestDetailPage.jsp");
+			rd.forward(req, resp);
+
+		}
+		else if(action.equals("comment_link")) {
+			int Num = Integer.parseInt(req.getParameter("productNum"));
+			ReviewDAOImpl dao = new ReviewDAOImpl();
+			
+			List<Review> lists = dao.selectByProductNo(Num);
+			
+			req.setAttribute("prodNum", Num);
+			req.setAttribute("latters", lists);
+			
+			RequestDispatcher rd = req.getRequestDispatcher("latter/product_latter.jsp");
+			rd.forward(req, resp);
+			
+		}
+		
+		
 	}
 }

@@ -58,6 +58,7 @@
 			</form>
 		</div>					
 	</div>
+	
 		<ul>
 			<li><a href="notice_req_list?reqPage=1">리스트돌아가기</a></li>
 		</ul>

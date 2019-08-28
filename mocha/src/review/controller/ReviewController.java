@@ -26,8 +26,8 @@ import review.dao.ReviewDAOImpl;
 import review.model.Review;
 
 @WebServlet(name = "ReviewController", urlPatterns = { "/review_ready", "/review_latters", "/Lee", "/review_list",
-		"/review_input", "/review_save", "/latter_req_list",
-		"/review_update", "/review_detail", "/review_delete","/latter_search","/menuList_back" })
+		"/review_input", "/review_save", "/latter_req_list", "/review_update", "/review_detail", "/review_delete",
+		"/latter_search", "/menuList_back" })
 public class ReviewController extends HttpServlet {
 
 	@Override
@@ -88,20 +88,17 @@ public class ReviewController extends HttpServlet {
 			 */
 
 		} else if (action.equals("review_input")) {
-			
+
 			ReviewDAO dao = new ReviewDAOImpl();
-			
+
 			int prodNum = Integer.parseInt(req.getParameter("productno"));
-			   ProductDAOImpel odo=new ProductDAOImpel();
-			   Product p = odo.selectByproductno(prodNum);
-			   req.setAttribute("product", p);
-				
+			ProductDAOImpel odo = new ProductDAOImpel();
+			Product p = odo.selectByproductno(prodNum);
+			req.setAttribute("product", p);
+
 			List<Review> lists = dao.selectByProductNo(prodNum);
 			req.setAttribute("latters", lists);
-			
-			
-			
-			
+
 			RequestDispatcher rd = req.getRequestDispatcher("/latter/proudct_insert.jsp");
 			rd.forward(req, resp);
 
@@ -112,14 +109,14 @@ public class ReviewController extends HttpServlet {
 			review.setContent(req.getParameter("content"));
 			review.setRate(Integer.parseInt(req.getParameter("rate")));
 			review.setProductno(Integer.parseInt(req.getParameter("productno")));
-			
+
 			ReviewDAO dao = new ReviewDAOImpl();
 			dao.insert(review);
 			int prodNum = Integer.parseInt(req.getParameter("productno"));
 			ReviewDAO dao1 = new ReviewDAOImpl();
 			List<Review> lists = dao1.selectByProductNo(prodNum);
 			req.setAttribute("latters", lists);
-			
+
 			resp.sendRedirect("./latter_req_list?reqPage=1");
 		} else if (action.equals("latter_req_list")) {
 
@@ -149,7 +146,7 @@ public class ReviewController extends HttpServlet {
 
 			dao.updateVisited(reviewno);
 
-			HttpSession session = req.getSession(); // 
+			HttpSession session = req.getSession(); //
 			session.setAttribute("review", review);
 
 			RequestDispatcher rd = req.getRequestDispatcher("/latter/product_detail.jsp");
@@ -191,7 +188,7 @@ public class ReviewController extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("/latter_req_list?reqPage=1");
 			rd.forward(req, resp);
 		} else if (action.equals("latter_search")) {
-			
+
 			ReviewDAO dao = new ReviewDAOImpl();
 			String reviewsubject = req.getParameter("reviewsubject");
 			System.out.println(reviewsubject);
