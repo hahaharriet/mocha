@@ -5,7 +5,7 @@
 
 <html>
   <head>
-    <title>Modist - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Mocha Mocha - Toy Store</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -69,7 +69,7 @@
 				<c:when test="${member !=null}">
 			
 						 <li class="nav-item active"><a href="mypage.do" class="nav-link">My Page</a></li>
-						 <li class="nav-item active"><c:if test="${member !=null}"><a href="logout" class="nav-link">로그아웃</a>
+						 <li class="nav-item active"><c:if test="${member !=null}"><a href="logout" class="nav-link">logout</a>
 						</c:if>
 				</c:when>
 				<c:otherwise>
@@ -359,15 +359,15 @@
 		            <div class="carousel-testimony owl-carousel ftco-owl">
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(images/moana.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
 		                  </div>
 		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Customer</span>
+		                    <p class="mb-4">I'm Hwangki Minaj. This is My Toy Store. Enjoy Your Shopping</p>
+		                    <p class="name">Hwang Danghae</p>
+		                    <span class="position">Owner</span>
 		                  </div>
 		                </div>
 		              </div>

@@ -20,11 +20,13 @@ import page.PageSQL;
 import product.dao.ProductDAO;
 import product.dao.ProductDAOImpel;
 import product.model.Product;
+import review.dao.ReviewDAOImpl;
+import review.model.Review;
 
 
 @WebServlet(name="ProductController", urlPatterns = {"/product_list_m","/product_list_price_desc_m","/product_list_price_asc_m","/product_search_m",
 		"/product_detail_m","/product_list_manager_m.do","/product_update_m","/product_save_m","/product_input_m","/product_delete_m","/product_detail_cust_m","/product_req_list","/product_req_manager_list.do",
-		"/product_req_asc_list","/product_req_desc_list"})
+		"/product_req_asc_list","/product_req_desc_list",/*"/print_productList_m","/TestP_detail_m","/comment_link_m"*/})
 @MultipartConfig
 public class ProductController extends HttpServlet{
 
@@ -256,8 +258,39 @@ public class ProductController extends HttpServlet{
 			RequestDispatcher rd = req.getRequestDispatcher("/product/productListPriceDesc.jsp");
 			rd.forward(req, resp);
 						
-		}
-		
+		}/* else if (action.equals("print_productList_m")) {
+
+			   ProductDAOImpel dao = new ProductDAOImpel();
+			   
+			   List<Product> lists = dao.selectAll();
+			   
+			   req.setAttribute("lists", lists);
+			   
+			   RequestDispatcher rd = req.getRequestDispatcher("product/productdetail.jsp");
+			   rd.forward(req, resp);
+
+			  }
+			  else if (action.equals("TestP_detail_m")) {
+			   int Num = Integer.parseInt(req.getParameter("pruductNo"));
+			   
+			   req.setAttribute("procNum", Num);
+			   RequestDispatcher rd = req.getRequestDispatcher("product/productdetail.jsp");
+			   rd.forward(req, resp);
+
+			  }
+			  else if(action.equals("comment_link_m")) {
+			   int Num = Integer.parseInt(req.getParameter("productNum"));
+			   ReviewDAOImpl dao = new ReviewDAOImpl();
+			   
+			   List<Review> lists = dao.selectByProductNo(Num);
+			   
+			   req.setAttribute("prodNum", Num);
+			   req.setAttribute("latters", lists);
+			   
+			   RequestDispatcher rd = req.getRequestDispatcher("latter/product_latter.jsp");
+			   rd.forward(req, resp);
+			   
+			  }*/
 	}
 	
 

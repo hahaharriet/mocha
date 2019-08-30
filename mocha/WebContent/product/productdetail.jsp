@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+ 
     <title>Modist - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,6 +29,20 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+    .center{
+    	  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		    
+    }
+    
+    
+    </style>
+    
+    
+
   </head>
   <body>
 
@@ -107,6 +122,7 @@
     				<a href="images/menu-2.jpg" class="image-popup"><img src="filemanager/${product.imgname}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
+    				
     				<h3>${product.productname}</h3>
     				<p class="price"><span>¥${product.price}</span></p>
     				<p>${product.description}</p>
@@ -152,16 +168,20 @@
         <div class="container">
           <div class="row d-flex justify-content-center py-5">
             <div class="col-md-7 text-center heading-section ftco-animate">
-            	<h1 class="big">Subscribe</h1>
-              <h2>Subcribe to our Newsletter</h2>
+            	<h1 class="big">Review</h1>
+        
+            <h2> Read This Product's Review </h2>
+		
+				
               <div class="row d-flex justify-content-center mt-5">
                 <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
+                 
+                 <div class="form-group d-flex">
+           	<div class="center">
+             <a href="comment_link?productNum=${product.productno}" ><img src="images/click_here.jpg" /></a> 
+			</div>
+                 </div> 
+                
                 </div>
               </div>
             </div>
@@ -292,6 +312,9 @@
 		            $('#quantity').val(quantity - 1);
 		            }
 		    });
+		     
+		     
+		 
 		    
 		});
 	</script>
