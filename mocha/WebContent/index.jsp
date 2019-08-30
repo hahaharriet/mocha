@@ -75,7 +75,7 @@
 				<c:otherwise>
 				
 					 <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">접속하기</a>
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Enterf</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown04">
 	              	<a class="dropdown-item" href="login">login</a>
 	                <a class="dropdown-item" href="join">join</a>
