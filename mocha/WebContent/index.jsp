@@ -61,8 +61,11 @@
 	          <li class="nav-item"><a href="join" class="nav-link">Join</a></li>
 	          <li class="nav-item"><a href="event_req_list?reqPage=1" class="nav-link">Event</a></li>
 	          <li class="nav-item"><a href="notice_req_list?reqPage=1" class="nav-link">Notice</a></li>
-	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-			
+	          <li class="nav-item cta cta-colored">
+	          <c:if test="${member !=null}">
+	          		<a href="Basket_link" class="nav-link"><span class="icon-shopping_cart"></span>${order_cnt}</a>
+			  </c:if>
+			  </li>
 	      
 	        
 	  	<c:choose>
