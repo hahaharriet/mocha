@@ -119,7 +119,7 @@
     						<h3><a href="product_detail_cust_m?productno=${product.productno}"> ${product.productname}</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span class="price">$ ${product.price}</span></p>
+		    						<p class="price"><span class="price">¥ ${product.price}</span></p>
 		    					</div>
 		    					<div class="rating">
 	    							<p class="text-right">

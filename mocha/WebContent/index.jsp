@@ -373,28 +373,28 @@
 		              </div>
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(images/tangfuru.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
 		                  </div>
 		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Customer</span>
+		                    <p class="mb-4">Do you like Tangfuru? Trust Me. I picked best toy for our store. You'll be satisfied.</p>
+		                    <p class="name">Mr.Tangfuru</p>
+		                    <span class="position">Baby Boss</span>
 		                  </div>
 		                </div>
 		              </div>
 		              <div class="item">
 		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+		                  <div class="user-img mb-4" style="background-image: url(images/ming.jpg)">
 		                    <span class="quote d-flex align-items-center justify-content-center">
 		                      <i class="icon-quote-left"></i>
 		                    </span>
 		                  </div>
 		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
+		                    <p class="mb-4">I bought my toys at Mocha Mocha in my entire life. This shop is soooo amazing.  </p>
+		                    <p class="name">MingKkuKku</p>
 		                    <span class="position">Customer</span>
 		                  </div>
 		                </div>
