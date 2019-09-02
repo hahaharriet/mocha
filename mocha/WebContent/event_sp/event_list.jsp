@@ -139,8 +139,11 @@ h2 {
 		<h2>
 			<strong>EVENT 게시판</strong>
 		</h2>
+		<c:if test="${member.memberid eq 'admin'}">
+			<li><a href="event_input"> 글쓰기로 이동</a></li>
+		</c:if>
 		<hr>
-
+		
 		<table class="table" style="margin-top: 70px;">
 			<thead class="thead-light">
 				<tr>
@@ -210,8 +213,5 @@ h2 {
 
 	<br />
 
-	<c:if test="${member.memberid eq 'admin'}">
-		<li><a href="event_input"> 글쓰기로 이동</a></li>
-	</c:if>
 </body>
 </html>

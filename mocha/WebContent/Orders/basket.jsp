@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
- 
     <title>Modist - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,24 +30,10 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-    
-    <style>
-    .center{
-    	  display: block;
-		  margin-left: auto;
-		  margin-right: auto;
-		    
-    }
-    
-    
-    </style>
-    
-    
-
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.jsp">Mocha Mocha</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +69,7 @@
 				<c:when test="${member !=null}">
 			
 						 <li class="nav-item active"><a href="mypage.do" class="nav-link">My Page</a></li>
-						 <li class="nav-item active"><c:if test="${member !=null}"><a href="logout" class="nav-link">로그아웃</a>
+						 <li class="nav-item active"><c:if test="${member !=null}"><a href="logout" class="nav-link">logout</a>
 						</c:if>
 				</c:when>
 				<c:otherwise>
@@ -108,95 +95,66 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-0 bread">Product Single</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a href="index.html">Product</a></span> <span>Product Single</span></p>
+            <h1 class="mb-0 bread">My basket</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span><a href="logout"></a>Logout</span></p>
           </div>
         </div>
       </div>
     </div>
-		
-		<section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-lg-6 mb-5 ftco-animate">
-    				<a href="images/menu-2.jpg" class="image-popup"><img src="filemanager/${product.imgname}" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
-    			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
-    				
-    				<h3>${product.productname}</h3>
-    				<p class="price"><span>¥${product.price}</span></p>
-    				<p>${product.description}</p>
-    				
-					
-						<div class="row mt-4">
-							<div class="col-md-6">
-						<!-- 		<div class="form-group d-flex">
-		              <div class="select-wrap">
-	                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                  <select name="" id="" class="form-control">
-	                  	<option value="">Small</option>
-	                    <option value="">Medium</option>
-	                    <option value="">Large</option>
-	                    <option value="">Extra Large</option>
-	                  </select>
-	                </div>
-		            </div> -->
-							</div>
-							<div class="w-100"></div>
-							<div class="input-group col-md-6 d-flex mb-3">
-<!-- 	             	<span class="input-group-btn mr-2">
-	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-	             	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-	             	<span class="input-group-btn ml-2">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span> -->
-	          	</div>
-          	</div>
-          	<p><a href="Basket_add?productno=${product.productno}" class="btn btn-primary py-3 px-5">basket add</a>
-          	<a href="Orders_input.do?productno=${product.productno}" class="btn btn-primary py-3 px-5">Order</a></p>
+    
+		<section class="ftco-section ftco-cart">
+			<div class="container">	
+				<div class="row">
+    			<div class="col-md-12 ftco-animate">
+    				<div class="cart-list">
+    				<br />
+					<h2>My basket</h2>
+    				<c:if test="${empty order_lists}">
+    					<p>장바구니가 비어있습니다.</p>
+    				</c:if>
+    				<c:if test="${!empty order_lists}">
+	    				<table class="table">
+						    <thead class="thead-primary">
+						      <tr class="text-center">
+						        <th>Product Name</th>
+						        <th>Price	</th>
+						        <th>Order Count</th>
+						      </tr>
+						    </thead>
+						    
+						    <tbody>
+						    <c:forEach var="order" items="${order_lists}">
+						      <tr class="text-center">
+						  
+						   		 <td class="product-name">${order.productname}</td>
+						      
+						        <td class="price" >${order.ordersprice}￥</td>
+						        <td class="price" >${order.count}</td>
+						           
+						      <!-- END TR-->
+								
+						      
+				
+						        </td>
+						        </tr>
+						        </c:forEach>
+						        <a href="basketOrders_input.do?productno=${product.productno}" class="btn btn-primary py-3 px-5">Order</a></p>
+						    </tbody>
+						  </table>
+						  </c:if>
+					  </div>
     			</div>
     		</div>
-    	</div>
-    </section>
-
-		<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-            	<h1 class="big">Review</h1>
-        
-            <h2> Read This Product's Review </h2>
-		
-				
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                 
-                 <div class="form-group d-flex">
-           	<div class="center">
-             <a href="comment_link?productNum=${product.productno}" ><img src="images/click_here.jpg" /></a> 
+    		
 			</div>
-                 </div> 
-                
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+		</section>
 
     <footer class="ftco-footer bg-light ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Mocha Mocha</h2>
+              <h2 class="ftco-heading-2">Modist</h2>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -280,45 +238,7 @@
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
 
-  <script>
-		$(document).ready(function(){
-
-		var quantitiy=0;
-		   $('.quantity-right-plus').click(function(e){
-		        
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		            
-		            $('#quantity').val(quantity + 1);
-
-		          
-		            // Increment
-		        
-		    });
-
-		     $('.quantity-left-minus').click(function(e){
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		      
-		            // Increment
-		            if(quantity>0){
-		            $('#quantity').val(quantity - 1);
-		            }
-		    });
-		     
-		     
-		 
-		    
-		});
-	</script>
+ 
     
   </body>
 </html>

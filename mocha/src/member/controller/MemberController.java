@@ -2,6 +2,7 @@ package member.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import member.dao.MemberDAO;
 import member.dao.MemberDAOImpl;
 import member.model.Member;
+import orders.model.basketOrder;
 @WebServlet(name="MemberController",urlPatterns= 
 {"/member_save","/mypage.do","/join","/memberlogin","/login","/update.do","/idcheck","/logout","/update_name.do","/update_email.do","/update_password.do","/member_delete.do","/delete.do","/find","/id_find","/password_find","/repassword","/emailcheck"})
 public class MemberController extends HttpServlet{
@@ -41,6 +43,12 @@ public class MemberController extends HttpServlet{
 			rd.forward(req, resp);
 		}
 		else if(action.equals("login")) {
+			HttpSession session = req.getSession();
+			List<basketOrder> order_lists = new ArrayList<basketOrder>();
+			
+			session.setAttribute("order_lists", order_lists);
+			session.setAttribute("order_cnt", 0);
+			
 			RequestDispatcher rd = req.getRequestDispatcher("/member/login.jsp");
 			rd.forward(req, resp);
 		}
