@@ -1,66 +1,300 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html >
-<html>
-	<head>
-	  <meta  charset=utf-8>
-<title>Insert title here</title>
-</head>
-<body>
-	
-	<form class="form-inline" action="product_search_m" method="post">
-		이름을 넣으세요 <input type="text" name="productname" style="align: center" /> <input
-			type="submit" value="검색" />
-	</form>
-	<a href="product_req_desc_list?reqPage=1">가격 높은 순</a><a href="product_req_asc_list?reqPage=1">가격 낮은 순</a>
-	<hr/>
-	<h3>Products List</h3>
-	<c:if test="${empty products}">	검색된 결과가 존재하지 않습니다.
-	</c:if>
-	<hr/>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mocha Mocha</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
 
-	<c:if test="${empty products} "></c:if>
-		<table>
-			<tr>
-				<td>상품 번호</td>
-				<td>상품 이름</td>
-				<td>이미지 경로</td>
-				<td>상품 설명</td>
-				<td>상품 가격</td>
-			</tr>
-			<c:forEach var="product" items="${products}">
-				<tr>
-					<td>${product.productno}</td>
-					<td><a href="product_detail_m?productno=${product.productno}">${product.productname}</a></td>
-					<td><img src="filemanager/${product.imgname}"/></td>
-					<td>${product.description}</td>
-					<td>${product.price}</td>					
-				</tr>	
-			</c:forEach>
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.jsp">Mocha Mocha</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+	          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="product_req_list?reqPage=1">Shop</a>
+                <a class="dropdown-item" href="product-single.html">Single Product</a>
+                <a class="dropdown-item" href="checkout.html">Checkout</a>
+              </div>
+           
+           
+       
+           
+           
+           
+           
+            </li>
+	          <li class="nav-item"><a href="join" class="nav-link">Join</a></li>
+	          <li class="nav-item"><a href="event_req_list?reqPage=1" class="nav-link">Event</a></li>
+	          <li class="nav-item"><a href="notice_req_list?reqPage=1" class="nav-link">Notice</a></li>
+	          <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 			
+	      
+	        
+	  	<c:choose>
+				<c:when test="${member !=null}">
 			
-			
-		</table>
-	<c:if test="${pageGroupResult.beforePage}">
-	<a href="product_req_manager_list.do?reqPage=${pageGroupResult.groupStartNumber-1}">
-	&#60;before</a>
-	</c:if>
-	<c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
-		<c:choose>
+						 <li class="nav-item active"><a href="mypage.do" class="nav-link">My Page</a></li>
+						 <li class="nav-item active"><c:if test="${member !=null}"><a href="logout" class="nav-link">로그아웃</a>
+						</c:if>
+				</c:when>
+				<c:otherwise>
+				
+					 <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">접속하기</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown04">
+	              	<a class="dropdown-item" href="login">login</a>
+	                <a class="dropdown-item" href="join">join</a>
+              		</div>
+				
+				</c:otherwise>
+			</c:choose>
+	        
+	    
+	          </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+		
+		
+		
+		<div class="hero-wrap hero-bread" style="background-image: url('images/toytoy.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-0 bread">Collection</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>Product</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+		
+		
+		 <a href="product_input_m.do">상품등록</a><br/>
+		<section class="ftco-section bg-light">
+		
+		
+
+		
+    	<div class="container-fluid"> 
+    		<div class="row">
+    		  	<c:forEach var="product" items="${products}" >
+    			<div class="col-sm col-md-6 col-lg-3 ftco-animate">
+    				<div class="product">
+    					<a href="product_detail_m?productno=${product.productno}" class="img-prod"><img class="img-fluid" src="filemanager/${product.imgname}"alt="Colorlib Template">
+    					
+    					</a>
+    					<div class="text py-3 px-3">
+    						<h3><a href="product_detail_m?productno=${product.productno}"> ${product.productname}</a></h3>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span class="price">¥ ${product.price}</span></p>
+		    					</div>
+		    					<div class="rating">
+	    							<p class="text-right">
+	    								<span class="ion-ios-star-outline"></span>
+	    								<span class="ion-ios-star-outline"></span>
+	    								<span class="ion-ios-star-outline"></span>
+	    								<span class="ion-ios-star-outline"></span>
+	    								<span class="ion-ios-star-outline"></span>
+	    							</p>
+	    						</div>
+	    					</div>
+	    					<hr>
+    						<p class="bottom-area d-flex">
+    							<a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+    							<a href="#" class="ml-auto"><span><i class="ion-ios-heart-empty"></i></span></a>
+    						</p>
+    					</div>
+    				</div>
+    			</div>   			
+    		</c:forEach>
+    		</div>
+    		</div>
+    		
+    		
+    	
+    	
+    	<div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+              <c:if test="${pageGroupResult.beforePage}">
+                <li><a href="product_req_manager_list?reqPage=${pageGroupResult.groupStartNumber-1}">&lt;</a></li>
+                </c:if>
+     <c:forEach var="index" begin="${pageGroupResult.groupStartNumber}" end="${pageGroupResult.groupEndNumber}">
+	<c:choose>
 			<c:when test="${pageGroupResult.selectPageNumber==index}">
-				<span id="select"><a href="product_req_manager_list.do?reqPage=${index}">${index}</a></span>		
+		  <li class="active">		<span id="select"><a href="product_req_manager_list?reqPage=${index}">${index}</a></span></li>		
 			</c:when>
 			<c:otherwise>
-				<a href="product_req_manager_list.do?reqPage=${index}">${index}</a>
+				<a href="product_req_manager_list?reqPage=${index}">${index}</a>
 			</c:otherwise>
 		
-		</c:choose>
+		</c:choose></span></li>
 		
 	</c:forEach>
-	<c:if test="${pageGroupResult.afterPage}">
-	<a href="product_req_manager_list.do?reqPage=${pageGroupResult.groupEndNumber+1}">after&#62;</a>
-	</c:if>		
-		 <a href="product_input_m">상품등록</a><br/>
+                <c:if test="${pageGroupResult.afterPage}">
+                <li><a href="product_req_manager_list?reqPage=${pageGroupResult.groupEndNumber+1}">&gt;</a></li>
+                </c:if>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-</body>
+
+    </section>
+
+		<section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+            	<h1 class="big">Search</h1>
+              <h2>Search to our New toys</h2>
+              <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                
+                  <form action="product_search_m" class="subscribe-form" method="post">
+                    <div class="form-group d-flex">
+                      <input type="text" name="productname" class="form-control" placeholder="이름을 입력하세요">
+                      <input type="submit" value="search" class="submit px-3">
+                    </div>
+                  </form>
+                 <c:if test="${empty products}">	검색된 결과가 존재하지 않습니다.
+				</c:if>	 
+                <hr/>
+
+	<c:if test="${empty products} "></c:if> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftco-footer bg-light ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Mocha Mocha</h2>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Shop</a></li>
+                <li><a href="#" class="py-2 d-block">About</a></li>
+                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+	              </ul>
+	              <ul class="list-unstyled">
+	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
+	                <li><a href="#" class="py-2 d-block">Contact</a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
 </html>

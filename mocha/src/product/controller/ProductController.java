@@ -25,7 +25,7 @@ import review.model.Review;
 
 
 @WebServlet(name="ProductController", urlPatterns = {"/product_list_m","/product_list_price_desc_m","/product_list_price_asc_m","/product_search_m",
-		"/product_detail_m","/product_list_manager_m.do","/product_update_m","/product_save_m","/product_input_m","/product_delete_m","/product_detail_cust_m","/product_req_list","/product_req_manager_list.do",
+		"/product_detail_m","/product_list_manager_m.do","/product_update_m","/product_save_m","/product_input_m.do","/product_delete_m","/product_detail_cust_m","/product_req_list","/product_req_manager_list.do",
 		"/product_req_asc_list","/product_req_desc_list",/*"/print_productList_m","/TestP_detail_m","/comment_link_m"*/})
 @MultipartConfig
 public class ProductController extends HttpServlet{
@@ -164,7 +164,7 @@ public class ProductController extends HttpServlet{
 //			RequestDispatcher rd = req.getRequestDispatcher("product_list_manager_m");
 //			rd.forward(req, resp);
 			
-		}else if(action.equals("product_input_m")) {
+		}else if(action.equals("product_input_m.do")) {
 			
 			RequestDispatcher rd = req.getRequestDispatcher("/product/productInsert.jsp");
 			rd.forward(req, resp);
