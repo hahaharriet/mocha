@@ -18,6 +18,7 @@
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <title>proudct_insert.jsp</title>
+
 <style type="text/css">
 .star-input>.input, .star-input>.input>label:hover, .star-input>.input>input:focus+label,
 	.star-input>.input>input:checked+label {
@@ -123,6 +124,30 @@ star-input>.input.focus {
 	width: 70%;
 }
 </style>
+
+<script type="text/javascript">
+ $(function(){
+	$("#signupForm").validate({
+		debug : false,
+		rules:{						
+			reviewsubject :"required",
+			
+			content :"required"
+		},
+		messages : {											
+			reviewsubject : {
+				required:"제목을 입력해주세요"
+			},
+			
+			content : {
+				required:"내용을 입력해주세요"
+			}						
+		}
+	});
+});
+
+</script>
+
 </head>
 <body>
 	<div class="center">
@@ -130,7 +155,7 @@ star-input>.input.focus {
 		<hr />
 		${productno}
 
-		<form action="review_save" method="post">
+		<form action="review_save" method="post" id="signupForm">
 			<table class="table table-bordered table-hover"
 				style="text-align: left;">
 				<tbody>
@@ -143,44 +168,57 @@ star-input>.input.focus {
 					<tr>
 						<td><strong>상품이름</strong><br /> <input type="hidden"
 							name="productno" value="${product.productno}" style="width: 10%;" /><br />
-							<input type="text" name="productno" value="${product.productname}"
-							style="width: 35%;" disabled="disabled" /><br /></td>
+							<input type="text" name="productno"
+							value="${product.productname}" style="width: 35%;"
+							disabled="disabled" /><br /></td>
 					</tr>
 					<tr>
 						<td><strong>제목</strong> <input type="text"
-							name="reviewsubject" /><br /></td>
+							name="reviewsubject" id="reviewsubject" /><br /></td>
 					</tr>
 					<tr>
 						<td><strong>내용</strong> <textarea rows="10" cols="50"
-								name="content" class="form-control" style=></textarea></td>
+								name="content" id="content" class="form-control" style=></textarea></td>
 					</tr>
 					<tr>
-
-						<td><strong>등급</strong> <span class="star-input"> <span
-								class="input"> <input type="radio" name="rate" value="1"
-									id="p1"> <label for="p1">1</label> <input type="radio"
-									name="rate" value="2" id="p2"> <label for="p2">2</label>
-									<input type="radio" name="rate" value="3" id="p3"> <label
-									for="p3">3</label> <input type="radio" name="rate" value="4"
-									id="p4"> <label for="p4">4</label> <input type="radio"
-									name="rate" value="5" id="p5"> <label for="p5">5</label>
-							</span>
-						</span> <output for="star-input"></output></td>
+						<td><strong>등급</strong> 
+						<span class="star-input"> 
+						<span class="input"> 
+						<input type="radio" name="rate" value=1 id="p1" checked="checked"> 
+						<label for="p1">1</label>
+						
+						<input type="radio" name="rate" value=2 id="p2">
+						<label for="p2">2</label>
+						
+						<input type="radio" name="rate" value=3 id="p3"> 
+						<label for="p3">3</label> 
+						
+						<input type="radio" name="rate" value=4 id="p4"> 
+						<label for="p4">4</label> 
+						
+						<input type="radio"name="rate" value=5 id="p5"> 
+						<label for="p5">5</label>
+						</span>
+						</span>
+						</td>
 					</tr>
 					<tr>
 						<td style="text-align: center;">
-							<button type="submit" class="btn btn-primary" style="width: 20%;"
-								value="저장">등록</button> <button type="submit" value="Go back"
-							class="btn btn-primary py-3 px-5" style="float: right;"
-							onclick="history.back(-1);">&nbsp;</button> 
+							<button type="submit" class="btn btn-primary" style="width: 30%;"
+								value="저장">등록</button>
+								<button type="submit" value="Go back"
+								class="btn btn-primary py-3 px-5" style="float: right;"
+								onclick="history.back(-1);">Go back</button>
+							
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</form>
+		
 		<div></div>
 	</div>
-<a href="latter_req_list?reqPage=1">리스트보기</a>
+	<a href="latter_req_list?reqPage=1">리스트보기</a>
 
 </body>
 </html>

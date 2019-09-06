@@ -104,7 +104,7 @@
 		</div>
 	</nav>
 	<!-- END nav -->
-	<h3>EVENT</h3>
+	<h3>Notice</h3>
 	<br />
 	<!-- 선긋기 -->
 	<div class="hero-wrap hero-bread"

@@ -56,7 +56,7 @@
 }
 </style>
 <script>
-	function inputNotice(){
+	function inputNotice() {
 		location.href = "notice_input";
 		return false;
 	}
@@ -213,9 +213,9 @@
 					<h2>Subcribe to our Newsletter</h2>
 					<div class="row d-flex justify-content-center mt-5">
 						<div class="col-md-8">
-							<form action="event_search" class="subscribe-form">
+							<form action="notice_search" class="subscribe-form">
 								<div class="form-group d-flex">
-									<input type="text" class="form-control" name="eventcontent"
+									<input type="text" class="form-control" name="noticecontent"
 										placeholder="검색하실 내용을 입력하세요"> <input type="submit"
 										value="search" class="submit px-3">
 								</div>
@@ -229,12 +229,12 @@
 	</section>
 
 
-	<c:if test="${empty events}">
+	<c:if test="${empty notices}">
 		<hr />
 			검색된 결과가 존재하지 않습니다.
 					<hr />
 	</c:if>
-	<c:if test="${! empty events}">
+	<c:if test="${! empty notices}">
 	</c:if>
 
 	<br />
@@ -309,7 +309,9 @@
 				<p>
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					Copyright &copy;
-					<script>document.write(new Date().getFullYear());</script>
+					<script>
+						document.write(new Date().getFullYear());
+					</script>
 					All rights reserved | This template is made with <i
 						class="icon-heart color-danger" aria-hidden="true"></i> by <a
 						href="https://colorlib.com" target="_blank">Colorlib</a>
