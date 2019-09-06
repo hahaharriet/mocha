@@ -141,10 +141,10 @@ star-input>.input.focus {
 							value="${member.memberid}" disabled="disabled"><br /></td>
 					</tr>
 					<tr>
-						<td><strong>상품번호</strong><br /> <input type="hidden"
+						<td><strong>상품이름</strong><br /> <input type="hidden"
 							name="productno" value="${product.productno}" style="width: 10%;" /><br />
-							<input type="text" name="productno" value="${product.productno}"
-							style="width: 10%;" disabled="disabled" /><br /></td>
+							<input type="text" name="productno" value="${product.productname}"
+							style="width: 35%;" disabled="disabled" /><br /></td>
 					</tr>
 					<tr>
 						<td><strong>제목</strong> <input type="text"
