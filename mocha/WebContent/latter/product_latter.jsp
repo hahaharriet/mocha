@@ -143,13 +143,12 @@ text-align: left;
 		<hr />
 		</c:if>
 		<c:if test="${! empty latters}">
-	<li><a href="review_input"> 글쓰기로 이동</a></li>
+	<a href="Orders_list">글쓰기로 돌아가기</a>
 	</c:if>
 	
 	<br />
-	before : ${pageGroupResult.beforePage}
-	<br /> after :${pageGroupResult.afterPage}
-	<br />
+
+	
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/jquery-1.11.3.min.js"></script>
