@@ -183,15 +183,15 @@
           <div class="col-xl-8 ftco-animate">
           <form action="orders_save?productno=${product.productno}" method="post" id="signupForm" class="billing-form bg-light p-3 p-md-5">
           	<h3 class="mb-4 billing-heading">Billing Details</h3>
-						<input type="hidden"  name="memberno" value="${member.memberno}" />
-			<input type=hidden  name="ordersmemberid" value="${member.memberid}" />
+						<input type="hidden"  name="memberno" value="${members.memberno}" />
+			<input type=hidden  name="ordersmemberid" value="${members.memberid}" />
 			<input type="hidden" name="productno" value="${product.productno}"/><br />
 							
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	                <div class="form-group">
 	                	<label for="firstname">Name</label>
-	                  <input type="text" name="ordersmembername" value="${member.membername}" class="form-control" placeholder="">
+	                  <input type="text" name="ordersmembername" value="${members.membername}" class="form-control" placeholder="">
 	                </div>
 	              </div>
 	             
@@ -202,7 +202,7 @@
 		            <div class="col-6">
 		            	<div class="form-group">
 		            		<label for="country">Email Address</label>
-		            		<input type="text" class="form-control"  name="ordersmemberemail" value="${member.email}"/>
+		            		<input type="text" class="form-control"  name="ordersmemberemail" value="${members.email}"/>
 		            	</div>
 		            </div>
 		            

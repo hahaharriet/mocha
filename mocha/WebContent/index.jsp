@@ -128,14 +128,14 @@
     				<div class="product-slider owl-carousel ftco-animate">
     					<div class="item">
 		    				<div class="product">
-		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=50" class="img-prod"><img class="img-fluid" src="images/woody.jpg" alt="Colorlib Template">
+		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=1" class="img-prod"><img class="img-fluid" src="images/woody_costume.jpg" alt="Colorlib Template">
 		    					<span class="status">new</span>
 		    					</a>
 		    					<div class="text pt-3 px-3">
-		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=50">Woody Toy Story</a></h3>
+		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=1">Woody Deluxe Toy Story 4 Costume, Child</a></h3>
 		    						<div class="d-flex">
 		    							<div class="pricing">
-			    							<p class="price"><span class="price-sale">¥60</span></p>
+			    							<p class="price"><span class="price-sale">¥3800</span></p>
 			    						</div>
 		    						</div>
 		    					</div>
@@ -143,13 +143,13 @@
 	    				</div>
 	    				<div class="item">
 		    				<div class="product">
-		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=49" class="img-prod"><img class="img-fluid" src="images/tayoyo.jpg" alt="Colorlib Template">
+		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=2" class="img-prod"><img class="img-fluid" src="images/buzz_costume.jpg" alt="Colorlib Template">
 		    					<span class="status">new</span></a>
 		    					<div class="text pt-3 px-3">
-		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=49">경기 G버스 </a></h3>
+		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=2">BUZZ TOY STORY 4 DELUXE COSTUME</a></h3>
 		    						<div class="d-flex">
 		    							<div class="pricing">
-				    						<p class="price"><span>¥5000</span></p>
+				    						<p class="price"><span>¥4700</span></p>
 				    					</div>
 			    					</div>
 		    					</div>
@@ -157,12 +157,12 @@
 	    				</div>
 	    				<div class="item">
 		    				<div class="product">
-		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=48" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template"></a>
+		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=4" class="img-prod"><img class="img-fluid" src="images/Sparkle_Minnie.jpg" alt="Colorlib Template"></a>
 		    					<div class="text pt-3 px-3">
-		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=48">할로윈 경찰</a></h3>
+		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=4">Ty Beanie Babies Minnie Red Sparkle Plush</a></h3>
 		    						<div class="d-flex">
 		    							<div class="pricing">
-				    						<p class="price"><span>¥27000</span></p>
+				    						<p class="price"><span>¥2500</span></p>
 				    					</div>
 			    					</div>
 		    					</div>
@@ -170,12 +170,12 @@
 	    				</div>
 	    				<div class="item">
 		    				<div class="product">
-		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=47" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template"></a>
+		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=5" class="img-prod"><img class="img-fluid" src="images/the_game_of_Life.jpg" alt="Colorlib Template"></a>
 		    					<div class="text pt-3 px-3">
-		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=47">미미 </a></h3>
+		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=5">Hasbro Games The Game Of Life Classic - Vacation Refresh </a></h3>
 		    						<div class="d-flex">
 		    							<div class="pricing">
-				    						<p class="price"><span>¥13000</span></p>
+				    						<p class="price"><span>¥2400</span></p>
 				    					</div>
 			    					</div>
 		    					</div>
@@ -183,14 +183,14 @@
 	    				</div>
 	    				<div class="item">
 		    				<div class="product">
-		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=46" class="img-prod"><img src="images/block.jpg" alt="Colorlib Template">
+		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=6" class="img-prod"><img src="images/Townhouse_Pet_Shop_Cafe.jpg" alt="Colorlib Template">
 			    					<span class="status">hot</span>
 			    				</a>
 		    					<div class="text pt-3 px-3">
-		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=46">블록 놀이</a></h3>
+		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=6">LEGO CREATOR TOWNHOUSE PET SHOP & CAFE 3-IN-1 SET, 31097</a></h3>
 		    						<div class="d-flex">
 		    							<div class="pricing">
-			    							<p class="price"><span class="price-sale">¥36000</span></p>
+			    							<p class="price"><span class="price-sale">¥13990</span></p>
 			    						</div>
 		    						</div>
 		    					</div>
@@ -198,12 +198,12 @@
 	    				</div>
 	    				<div class="item">
 		    				<div class="product">
-		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=21" class="img-prod"><img src="images/instruction.jpg" alt="Colorlib Template"></a>
+		    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=7" class="img-prod"><img src="images/peppapig.jpg" alt="Colorlib Template"></a>
 		    					<div class="text pt-3 px-3">
-		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=21">역할놀이세트</a></h3>
+		    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=7">Peppa Pig Family Pack of Figures</a></h3>
 		    						<div class="d-flex">
 		    							<div class="pricing">
-				    						<p class="price"><span>¥60000</span></p>
+				    						<p class="price"><span>¥2990</span></p>
 				    					</div>
 			    					</div>
 		    					</div>
@@ -228,12 +228,12 @@
     		<div class="row">
     			<div class="col-sm col-md-6 col-lg ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template"></a>
+    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=8" class="img-prod"><img class="img-fluid" src="images/simba.jpg" alt="Colorlib Template"></a>
     					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
+    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=8">Fur Real Disney The Lion King Mighty Roar Simba</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span>¥19990</span></p>
 		    					</div>
 		    					<div class="rating">
 	    							<p class="text-right">
@@ -255,12 +255,12 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template"></a>
+    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=9" class="img-prod"><img class="img-fluid" src="images/Pink_Pegasus.jpg" alt="Colorlib Template"></a>
     					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
+    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=9">85cm Laying Pink Pegasus</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span>¥3500</span></p>
 		    					</div>
 		    					<div class="rating">
 	    							<p class="text-right">
@@ -282,12 +282,12 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="Colorlib Template"></a>
+    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=10" class="img-prod"><img class="img-fluid" src="images/dancedino.jpg" alt="Colorlib Template"></a>
     					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
+    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=10">Vtech Learn & Dance Dino</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span>¥3990</span></p>
 		    					</div>
 		    					<div class="rating">
 	    							<p class="text-right">
@@ -309,9 +309,9 @@
     			</div>
     			<div class="col-sm col-md-6 col-lg ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template"></a>
+    					<a href="http://localhost:9999/mocha/product_detail_cust_m?productno=11" class="img-prod"><img class="img-fluid" src="images/Flush_Force_Bowl.jpg" alt="Colorlib Template"></a>
     					<div class="text py-3 px-3">
-    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
+    						<h3><a href="http://localhost:9999/mocha/product_detail_cust_m?productno=11">Flush Force Flush Force Collect A Bowl</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
 		    						<p class="price"><span>$120.00</span></p>
@@ -402,34 +402,10 @@
 		                  </div>
 		                </div>
 		              </div>
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-		                    <span class="quote d-flex align-items-center justify-content-center">
-		                      <i class="icon-quote-left"></i>
-		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Customer</span>
-		                  </div>
+		     
 		                </div>
 		              </div>
-		              <div class="item">
-		                <div class="testimony-wrap py-4 pb-5">
-		                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-		                    <span class="quote d-flex align-items-center justify-content-center">
-		                      <i class="icon-quote-left"></i>
-		                    </span>
-		                  </div>
-		                  <div class="text text-center">
-		                    <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Customer</span>
-		                  </div>
-		                </div>
-		              </div>
+		       
 		            </div>
 		          </div>
 		        </div>
@@ -443,19 +419,19 @@
       <div class="container">
         <div class="row justify-content-center mb-3 pb-3">
           <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big">Blog</h1>
-            <h2>Recent Blog</h2>
+            <h1 class="big">EVENT</h1>
+            <h2>Recent Event</h2>
           </div>
         </div>
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/byesummer.jpg');">
               </a>
               <div class="text mt-3 d-block">
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading mt-3"><a href="#">Goodbye Summer Event 50% off Toy</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">Dec 6, 2018</a></div>
+                  <div><a href="#">sep 1, 2019</a></div>
                   <div><a href="#">Admin</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
@@ -464,12 +440,12 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/lego_event.jpg');">
               </a>
               <div class="text mt-3">
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading mt-3"><a href="#">LEGO DAY grap your free gift TODAY! Best Holiday deal EVER!!!!</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">Dec 6, 2018</a></div>
+                  <div><a href="#">Aug 20, 2019</a></div>
                   <div><a href="#">Admin</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
@@ -478,12 +454,12 @@
           </div>
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/toddler_toys_sale.jpg');">
               </a>
               <div class="text mt-3">
-                <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                <h3 class="heading mt-3"><a href="#">Toddler toys Sale UP TO 50%-----------🎃 👻Happy Halloween 👻🎃</a></h3>
                 <div class="meta mb-3">
-                  <div><a href="#">Dec 6, 2018</a></div>
+                  <div><a href="#">Oct 1, 2019</a></div>
                   <div><a href="#">Admin</a></div>
                   <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
@@ -491,7 +467,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
     </section>
 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_4.jpg);">
@@ -537,7 +513,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section bg-light ftco-services">
+<!--     <section class="ftco-section bg-light ftco-services">
     	<div class="container">
     		<div class="row justify-content-center mb-3 pb-3">
           <div class="col-md-12 heading-section text-center ftco-animate">
@@ -581,23 +557,29 @@
           </div>
         </div>
     	</div>
-    </section>
+    </section> -->
 		
 		<section class="ftco-section-parallax">
       <div class="parallax-img d-flex align-items-center">
         <div class="container">
           <div class="row d-flex justify-content-center py-5">
             <div class="col-md-7 text-center heading-section ftco-animate">
-            	<h1 class="big">Subscribe</h1>
-              <h2>Subcribe to our Newsletter</h2>
+            	<h1 class="big">Search</h1>
+              <h2>Search to our New toys</h2>
               <div class="row d-flex justify-content-center mt-5">
                 <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
+                
+                  <form action="product_search_m" class="subscribe-form" method="post">
                     <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
+                      <input type="text" name="productname" class="form-control" placeholder="이름을 입력하세요">
+                      <input type="submit" value="search" class="submit px-3">
                     </div>
                   </form>
+                 <c:if test="${empty products}">	검색된 결과가 존재하지 않습니다.
+				</c:if>	 
+                <hr/>
+
+	<c:if test="${empty products} "></c:if> 
                 </div>
               </div>
             </div>
@@ -606,14 +588,15 @@
       </div>
     </section>
 
+
     <footer class="ftco-footer bg-light ftco-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Modist</h2>
+              <h2 class="ftco-heading-2">Mocha Mocha</h2>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://twitter.com/MochaMo98623384"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
               </ul>
@@ -623,9 +606,8 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Menu</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Shop</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="product_req_list?reqPage=1" class="py-2 d-block">Shop</a></li>
+                <li><a href="event_req_list?reqPage=1" class="py-2 d-block">Event</a></li>
                 <li><a href="#" class="py-2 d-block">Contact Us</a></li>
                 <c:if test="${member.memberid eq 'admin'}">
                 <li><a href="product_req_manager_list.do?reqPage=1" class="py-2 d-block">Admin Page</a></li>
@@ -655,9 +637,9 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">6 Chome-1-9 Jingumae, Shibuya City, Tokyo 150-0001, Japan</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+81 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">mochamochamaster@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

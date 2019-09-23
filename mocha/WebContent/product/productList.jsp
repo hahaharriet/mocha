@@ -212,7 +212,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Mocha Mocha</h2>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="https://twitter.com/MochaMo98623384"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
               </ul>
@@ -222,10 +222,12 @@
             <div class="ftco-footer-widget mb-4 ml-md-5">
               <h2 class="ftco-heading-2">Menu</h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Shop</a></li>
-                <li><a href="#" class="py-2 d-block">About</a></li>
-                <li><a href="#" class="py-2 d-block">Journal</a></li>
+                <li><a href="product_req_list?reqPage=1" class="py-2 d-block">Shop</a></li>
+                <li><a href="event_req_list?reqPage=1" class="py-2 d-block">Event</a></li>
                 <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                <c:if test="${member.memberid eq 'admin'}">
+                <li><a href="product_req_manager_list.do?reqPage=1" class="py-2 d-block">Admin Page</a></li>
+                </c:if>
               </ul>
             </div>
           </div>
@@ -251,9 +253,9 @@
             	<h2 class="ftco-heading-2">Have a Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">6 Chome-1-9 Jingumae, Shibuya City, Tokyo 150-0001, Japan</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+81 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">mochamochamaster@gmail.com</span></a></li>
 	              </ul>
 	            </div>
             </div>

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import member.dao.MemberDAO;
+import member.dao.MemberDAOImpl;
 import member.model.Member;
 import orders.dao.OrdersDAO;
 import orders.dao.OrdersDAOImpel;
@@ -55,7 +57,13 @@ public class OrdersController extends HttpServlet {
 			Product p = odo.selectByproductno(prodNum);
 
 			req.setAttribute("product", p);
-
+			
+			MemberDAO dao = new MemberDAOImpl();
+			   HttpSession sesstion = req.getSession();
+			   Member member = (Member) sesstion.getAttribute("member");
+			   Member members = dao.selectByNo(member.getMemberno());
+			   req.setAttribute("members",members ); 
+			
 			RequestDispatcher rd = req.getRequestDispatcher("/Orders/orders_form.jsp");
 			rd.forward(req, resp);
 
